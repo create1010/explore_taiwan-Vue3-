@@ -50,4 +50,15 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  // 如果路由中有 meta.title，則設置頁面title
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  } else {
+    document.title = '默認標題'; //默認標題
+  }
+  next();
+});
+
+
 export default router
