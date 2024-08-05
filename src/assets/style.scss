@@ -1,0 +1,30 @@
+//全局
+.section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+}
+
+
+//基本設置
+@import './sass/base/reset.scss' ;
+@import './sass/base/var.scss';
+
+//layout
+@import './sass/layout/nav.scss';
+@import './sass/layout/footer.scss';
+
+
+//page
+@import './sass/page/brand.scss';
+@import './sass/page/connection.scss';
+@import './sass/page/destination.scss';
+@import './sass/page/home.scss';
+@import './sass/page/login.scss';
+@import './sass/page/plan.scss';
+@import './sass/page/remember.scss'

@@ -1,0 +1,31 @@
+header{
+    background-color: rgba(11,47,71,1);
+    font-family: $font-family-base;
+    font-weight: 500;
+    .navigation{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logoIndex img{
+            vertical-align: top;
+        }
+        .navbar{
+            width: 70%;
+            display: flex;
+            justify-content: space-evenly;
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+        .loginbar{
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}

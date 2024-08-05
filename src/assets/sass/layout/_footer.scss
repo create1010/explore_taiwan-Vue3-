@@ -1,0 +1,117 @@
+footer {
+    background-color: rgba(11,47,71,1);
+    font-family: $font-family-base;
+    color: #fff;
+    .footerWrap {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        .lastPage {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+
+            h4 {
+                color: #fff;
+                font-weight: bold;
+                font-weight: 500;
+            }
+
+            .place{
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                }
+                li {
+                    margin: 7px 0;
+                    font-size: 14px;
+                }
+            }
+            .webName{
+                font-weight: 500;
+            }
+        }
+
+        .material {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .on,
+            .under {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h3{
+                    font-weight: 500;
+                }
+                span {
+                        display: block;
+                        font-size: 14px;
+                        margin-top: 20px;
+                }
+            }
+            .tibame{
+                opacity: .5;
+                font-size: 14px;
+            }
+        }
+
+        .sub {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            form{
+                display: flex;
+                input{
+                    background-color: transparent;
+                    border-radius: 10px;
+                    border: 2px solid #fff;
+                    padding: 10px;
+                    &::placeholder{
+                        color: #fff;
+                        font-family: $font-family-base;
+                    }
+                    &:focus{
+                        color: #fff;
+                    }
+                }
+                .edm{
+                    margin-left: 10px;
+                    background-color: #00BCD6;
+                    border: none;
+                    border-radius: 10px;
+                    color: #fff;
+                    font-family: $font-family-base;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #fff;
+                        color: #00BCD6;
+                        transition: .3s ease;
+                    }
+                }
+
+            }
+            .icon{
+                display: flex;
+                a{
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 20px;
+                    margin-right: 20px;
+                    color: #fff;
+                    padding: 10px;
+                    opacity: .5;
+                    &:hover{
+                        opacity: 1;
+                        transition: .3s ease;
+                    }
+                }
+            }
+            .copy{
+                font-size: 14px;
+                font-family: sans-serif;
+            }
+        }
+    }
+}
