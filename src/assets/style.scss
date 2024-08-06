@@ -4,7 +4,8 @@
     padding-bottom: 40px;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     max-width: 1200px;
     width: 100%;
     margin: auto;
@@ -12,7 +13,7 @@
 
 
 //基本設置
-@import './sass/base/reset.scss' ;
+@import './sass/base/reset.scss';
 @import './sass/base/var.scss';
 
 //layout

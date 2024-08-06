@@ -17,6 +17,7 @@
         align-items: center;
         width: 100%;
         height: calc(100vh - 66.47px - 232px);
+        min-height: 620.52px;
 
         .loginBar {
             flex: 1;
@@ -60,6 +61,13 @@
                         padding: 10px 0;
                         color: #000;
                         font-weight: 700;
+                        transition: .3s ease;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #00BCD6;
+                            color: #fff;
+                        }
                     }
                 }
 
@@ -112,13 +120,14 @@
                             justify-content: center;
                             align-items: center;
 
-                            input {
-                                border: none;
-                            }
-
                             label {
                                 color: #fff;
                                 font-weight: bold;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: #00BCD6;
+                                }
                             }
                         }
 
@@ -127,6 +136,10 @@
                                 text-decoration: none;
                                 color: #fff;
                                 font-weight: bold;
+
+                                &:hover {
+                                    color: #00BCD6;
+                                }
                             }
                         }
                     }
@@ -136,7 +149,7 @@
                         display: flex;
                         justify-content: center;
 
-                        a {
+                        button {
                             width: 100%;
                             padding: 10px 0;
                             text-align: center;
@@ -145,7 +158,20 @@
                             color: #fff;
                             margin: 30px 0;
                             background-color: #00BCD6;
+                            border: none;
                             border-radius: 5px;
+                            transition: .3s ease;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #00BCD6;
+                                background-color: #fff;
+                            }
+
+                            &:active {
+                                color: #fff;
+                                background-color: #00BCD6;
+                            }
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 <template>
-    <section class="section section-kv" ref="sectionKv">
+    <section class="section section-kv">
         <div class="container">
             <div class="kvWrap">
                 <div class="leftFood">
@@ -17,29 +17,4 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
-import { useScrollStore } from '../../stores/homeScroll'
-
-const scrollStore = useScrollStore();
-const sectionKv = ref(null);
-
-
-//methods
-const handleScroll = () => {
-    //判斷位置是否與導覽列重疊
-    if (!sectionKv.value || !scrollStore.navRef) return;
-    const kvRect = sectionKv.value.getBoundingClientRect();
-    const navRect = scrollStore.navRef.getBoundingClientRect();
-    //套用pinia中方法
-    scrollStore.setTransparent(kvRect.top <= navRect.bottom);
-};
-
-onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-});
-
-onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-});
 </script>

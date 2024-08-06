@@ -25,8 +25,8 @@
                         </div>
                         <form>
                             <div class="enter">
-                                <input type="email" placeholder="請輸入電子郵件">
-                                <input type="password" placeholder="密碼">
+                                <input v-model="username" type="email" placeholder="請輸入電子郵件" required>
+                                <input v-model="password" type="password" placeholder="密碼" required>
                             </div>
                             <div class="check">
                                 <div class="remember">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="logunBtn">
-                                <RouterLink>登入</RouterLink>
+                                <button @click="checkInput">登入</button>
                             </div>
 
                         </form>
@@ -56,5 +56,26 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const username = ref('')
+const password = ref('')
+const route = useRouter()
+//測試用帳號、密碼
+
+const testuser = 'a123456'
+const testpassword = 'behappy666'
+
+//methodes
+const checkInput = () => {
+    if (username.value === testuser && password.value === testpassword) {
+        alert('登入成功!');
+        route.push({ name: 'home' })   //登入ˋ成功跳轉回首頁
+    } else {
+        alert('帳號密碼錯誤，請重新登入')
+    }
+
+}
 
 </script>
