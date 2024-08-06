@@ -3,6 +3,10 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  //畫面開始都在最上方
+  scrollBehavior() {
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',

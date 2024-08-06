@@ -14,5 +14,7 @@ export const useScrollStore = defineStore('scroll', () => {
     navRef.value = ref;
   };
 
+
+
   return { isTransparent, setTransparent,navRef,setNavRef };
 });

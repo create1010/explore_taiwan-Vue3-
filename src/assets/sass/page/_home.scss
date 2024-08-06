@@ -401,6 +401,12 @@
                     font-size: 20px;
                     font-weight: 700;
                     margin: 10px 0;
+                    i{  
+                        animation: Jitter 1s linear infinite;
+                    }
+                    span{
+                        margin-left: 10px;
+                    }
                 }
             }
         }
@@ -496,6 +502,12 @@
                     font-size: 20px;
                     font-weight: 700;
                     margin: 10px 0;
+                    i{  
+                        animation: Jitter 1s linear infinite;
+                    }
+                    span{
+                        margin-left: 10px;
+                    }
                 }
             }
         }
@@ -880,4 +892,15 @@
         transform: translateX(20px);
         color: #ffffff;
     }
+}
+@keyframes Jitter {
+    0% {transform: translateY(0);}
+
+    25% {transform: translateY(5px);}
+
+    50% {transform: translateY(0px);}
+
+    75% {transform: translateY(-5px);}
+
+    100% {transform: translateY(0px);}
 }

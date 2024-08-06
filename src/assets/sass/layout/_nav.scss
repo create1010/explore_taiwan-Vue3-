@@ -1,16 +1,12 @@
 header{
-    background-color: rgba(11,47,71,1);
+    background-color: rgb(11,47,71);
     font-family: $font-family-base;
     font-weight: 500;
     width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10;
-    // &:hover{
-    //     background-color: rgba(117, 149, 172, 0.7);
-    //     .navigation .navbar a{
-    //         color: #ffffff;
-    //     }
-    // }
     .navigation{
         display: flex;
         justify-content: space-between;

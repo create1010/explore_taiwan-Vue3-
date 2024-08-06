@@ -2,6 +2,7 @@
 import HeaderView from './components/Layout/HeaderView.vue'
 import FooterView from './components/Layout/FooterView.vue'
 import { RouterView } from 'vue-router';
+
 </script>
 
 <template>

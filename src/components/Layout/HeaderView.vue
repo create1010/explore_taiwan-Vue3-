@@ -1,5 +1,5 @@
 <template>
-    <header :class="{ 'transparent': scrollStore.isTransparent }" ref="navScroll">
+    <header :class="{ 'fixed': !isLoginPage, 'transparent': scrollStore.isTransparent }" ref="navScroll">
         <div class="container">
             <nav class="navigation">
                 <RouterLink to="/" class="logoIndex">
@@ -33,12 +33,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { RouterLink } from 'vue-router'
+import { ref, onMounted, computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router'
 import { useScrollStore } from '../../stores/homeScroll'
 
 const navScroll = ref(null);
 const scrollStore = useScrollStore();
+const route = useRoute();
+//如果不是頁面不是login，就套用class="fixed"
+const isLoginPage = computed(() => route.path != '/Login');
 
 onMounted(() => {
     scrollStore.setNavRef(navScroll.value);
@@ -55,5 +58,10 @@ onMounted(() => {
     .loginbar a {
         color: #fff;
     }
+}
+
+.fixed {
+    position: static;
+    background-color: rgb(11, 47, 71)
 }
 </style>

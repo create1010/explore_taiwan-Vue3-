@@ -7,20 +7,20 @@
                         <h2>會員登入</h2>
                         <div class="loginStyle">
                             <button>
-                                Facebook登入
                                 <i class="fa-brands fa-facebook-f"></i>
+                                Facebook登入
                             </button>
                             <button>
-                                Apple ID登入
                                 <i class="fa-brands fa-apple"></i>
+                                Apple ID登入
                             </button>
                             <button>
-                                Twitter登入
                                 <i class="fa-brands fa-x-twitter"></i>
+                                Twitter登入
                             </button>
                             <button>
-                                Gmail登入
                                 <i class="fa-brands fa-google-plus-g"></i>
+                                Gmail登入
                             </button>
                         </div>
                         <form>
@@ -30,8 +30,10 @@
                             </div>
                             <div class="check">
                                 <div class="remember">
-                                    <input type="checkbox">
-                                    <span>記住我</span>
+                                    <input type="checkbox" id="rememberMe">
+                                    <label for="rememberMe">記住我</label>
+                                </div>
+                                <div class="forget">
                                     <RouterLink>忘記密碼</RouterLink>
                                 </div>
                             </div>
@@ -43,7 +45,10 @@
                     </div>
                 </div>
                 <div class="slogan">
-
+                    <div class="text">
+                        <span>Travel with Heart,</span>
+                        <span>Discover Life's Beauty</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -51,5 +56,5 @@
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router';
+
 </script>
