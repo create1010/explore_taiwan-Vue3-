@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="topButton">
-                <i class="fa-solid fa-angle-up" @click="topBtn"></i>
+                <i class="fa-solid fa-angle-up" @click="top"></i>
             </div>
         </div>
     </section>
@@ -55,7 +55,10 @@
 <script setup>
 import { reactive } from 'vue';
 import { RouterLink } from 'vue-router';
+import { useTopScrollStore } from '@/stores/topScroll';
 //data
+const store = useTopScrollStore();
+const { top } = store
 const cards = reactive([
     {
         title: '商圈景點',
@@ -88,8 +91,4 @@ const storys = reactive([
         content: '為什麼旅遊業需要更高的透明度',
     }
 ])
-//methodes
-const topBtn = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 </script>
