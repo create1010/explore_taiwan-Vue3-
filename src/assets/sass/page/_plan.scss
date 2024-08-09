@@ -1,0 +1,121 @@
+//section-plan
+.section-plan {
+
+    .header {
+        background-color: #0593D7;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        font-weight: bold;
+
+        h2 {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .dataInfo {
+        height: 150px;
+        background: url(/public/img/plan/1.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        span,
+        .download {
+            margin-left: 10px;
+        }
+
+        span {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .download {
+            margin-bottom: 10px;
+
+            button {
+                background-color: transparent;
+                border: none;
+                font-size: 18px;
+                font-weight: bold;
+                transition: .3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    color: #0593D7;
+                }
+            }
+        }
+    }
+
+    .dateBar {
+        background-color: #0593D7;
+        position: relative;
+
+        &::before {
+            content: '⟶';
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .date {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .start,
+            .end {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 0;
+                font-size: 20px;
+
+                h3 {
+
+                    font-weight: bold;
+                    letter-spacing: .1em;
+                }
+
+                input {
+                    width: calc(50% - 10px);
+                    padding: 5px;
+                    border: none;
+                    border-radius: 5px;
+                    text-align: center;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .journeys {}
+}

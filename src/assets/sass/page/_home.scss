@@ -94,6 +94,7 @@
                     top: 50%;
                     transform: translateY(-50%);
                     color: #fff;
+                    cursor: pointer;
                 }
             }
         }
@@ -401,10 +402,12 @@
                     font-size: 20px;
                     font-weight: 700;
                     margin: 10px 0;
-                    i{  
+
+                    i {
                         animation: Jitter 1s linear infinite;
                     }
-                    span{
+
+                    span {
                         margin-left: 10px;
                     }
                 }
@@ -502,10 +505,12 @@
                     font-size: 20px;
                     font-weight: 700;
                     margin: 10px 0;
-                    i{  
+
+                    i {
                         animation: Jitter 1s linear infinite;
                     }
-                    span{
+
+                    span {
                         margin-left: 10px;
                     }
                 }
@@ -705,6 +710,7 @@
             .card:nth-child(2) {
                 margin-top: 160px;
                 position: relative;
+
                 &::after {
                     content: '';
                     display: block;
@@ -772,6 +778,11 @@
                         display: flex;
                         flex-direction: column;
                         align-items: center;
+
+                        &:hover span,
+                        a {
+                            color: #fff;
+                        }
 
                         span {
                             color: #fff;
@@ -893,14 +904,25 @@
         color: #ffffff;
     }
 }
+
 @keyframes Jitter {
-    0% {transform: translateY(0);}
+    0% {
+        transform: translateY(0);
+    }
 
-    25% {transform: translateY(5px);}
+    25% {
+        transform: translateY(5px);
+    }
 
-    50% {transform: translateY(0px);}
+    50% {
+        transform: translateY(0px);
+    }
 
-    75% {transform: translateY(-5px);}
+    75% {
+        transform: translateY(-5px);
+    }
 
-    100% {transform: translateY(0px);}
+    100% {
+        transform: translateY(0px);
+    }
 }
