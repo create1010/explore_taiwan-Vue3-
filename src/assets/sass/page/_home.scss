@@ -390,9 +390,15 @@
                 justify-content: center;
                 align-items: center;
 
-                img {
-                    width: 60%;
-                    vertical-align: top;
+
+                .pic {
+                    display: flex;
+                    width: 200px;
+
+                    img {
+                        width: 100%;
+                        vertical-align: top;
+                    }
                 }
 
                 .text {
@@ -493,9 +499,14 @@
                 justify-content: center;
                 align-items: center;
 
-                img {
-                    width: 60%;
-                    vertical-align: top;
+                .pic {
+                    display: flex;
+                    width: 200px;
+
+                    img {
+                        width: 100%;
+                        vertical-align: top;
+                    }
                 }
 
                 .text {

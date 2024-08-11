@@ -48,7 +48,7 @@ const handleScroll = () => {
     // 判斷捲動位置是否超過 900px
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollPosition >= 900) {
+    if (scrollPosition >= 100) {
         // 當捲動超過 900px 時觸發效果
         scrollStore.setTransparent(true);
     } else {

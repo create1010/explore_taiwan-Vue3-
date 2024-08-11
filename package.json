@@ -10,7 +10,9 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@fawmi/vue-google-maps": "^0.9.79",
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@googlemaps/js-api-loader": "^1.16.8",
     "date-fns": "^3.6.0",
     "pinia": "^2.1.7",
     "sass": "^1.77.8",

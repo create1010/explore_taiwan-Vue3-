@@ -38,9 +38,9 @@
                         <div class="form-group">
                             <label>性別</label>
                             <div class="radio-group">
-                                <input type="radio" id="male">
+                                <input type="radio" id="male" name="male">
                                 <label for="male">男生</label>
-                                <input type="radio" id="female">
+                                <input type="radio" id="female" name="male">
                                 <label for="female">女生</label>
                             </div>
                         </div>
