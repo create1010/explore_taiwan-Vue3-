@@ -10,7 +10,9 @@
                 <div class="picture">
                     <div class="card" v-for="card in cardList" :key="card.id">
                         <div class="image">
-                            <img :src="card.img" :alt="card.alt">
+                            <RouterLink :to="{ name: 'Detail', params: { id: card.id } }">
+                                <img :src="card.img" :alt="card.alt">
+                            </RouterLink>
                         </div>
                         <span>{{ card.content }}</span>
                     </div>

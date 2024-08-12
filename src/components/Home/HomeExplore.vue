@@ -7,7 +7,7 @@
                         <span>探尋文化之韻</span>
                         <span>採取靈感，打造獨一無二的精彩之旅。</span>
                     </div>
-                    <button>立即啟航</button>
+                    <button @click="goToPlan">立即啟航</button>
                 </div>
                 <div class="rightBar">
                     <div class="locationList" v-for="item in area" :key="item.id">
@@ -27,6 +27,9 @@
 
 <script setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const area = reactive([
     {
@@ -48,4 +51,8 @@ const area = reactive([
         image: '/img/home/11.png'
     },
 ])
+
+const goToPlan = () => {
+    router.push('/Plan')
+}
 </script>

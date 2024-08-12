@@ -76,7 +76,7 @@
                     background-color: transparent;
                     border: 2px solid #fff;
                     border-radius: 10px;
-                    padding: 10px 40px 10px 15px;
+                    padding: 10px 40px 10px 10px;
                     color: #fff;
 
                     &::placeholder {
@@ -95,6 +95,23 @@
                     transform: translateY(-50%);
                     color: #fff;
                     cursor: pointer;
+                }
+            }
+
+            .logBar {
+                background-color: rgba(196, 195, 195, 0.7);
+                padding: 10px 0;
+                border-radius: 0 0 10px 10px;
+                margin: auto;
+                width: 85%;
+
+                li {
+                    cursor: pointer;
+                    transition: .3s ease;
+
+                    &:hover {
+                        color: rgb(11, 47, 71);
+                    }
                 }
             }
         }

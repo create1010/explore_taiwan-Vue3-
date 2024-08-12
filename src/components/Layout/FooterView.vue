@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer v-if="footerToggle">
         <div class="container">
             <div class="footerWrap">
                 <div class="lastPage">
@@ -42,10 +42,17 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import { RouterLink } from 'vue-router';
+import { useRoute } from 'vue-router'
 
 //數據
 const location = reactive(['新北', '台北', '桃園', '台中', '高雄'])
-
+const route = useRoute()
+const footerToggle = computed(() => {
+    const hiddenFooter = ['Detail'];
+    return !hiddenFooter.includes(route.name)
+})
 </script>
+
+<style lang="scss" scoped></style>

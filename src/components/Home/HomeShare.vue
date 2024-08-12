@@ -98,9 +98,24 @@ const contents = [
         rightBottomLocation: '麗寶樂園',
         title: '台中奇幻之旅',
         description: '這次在台灣中部的旅行讓我驚艷不已。從壯麗的山脈到靜謐的湖泊，每一個景點都彷彿是一幅美麗的畫卷。當地的文化和美食更是讓人回味無窮。我會向每位喜愛自然景觀和文化探險的旅客推薦這裡。',
-        rating: '../../../public/img/home/16.png',
+        rating: '../../../public/img/home/17.png',
         date: '發佈於2024年4月15日星期一',
         author: '李華'
+    },
+    {
+        leftTopImage: '../../../public/img/home/34.jpg',
+        leftTopLocation: '野柳女王頭',
+        leftBottomImage: '../../../public/img/home/35.jpg',
+        leftBottomLocation: '富貴角燈塔',
+        rightTopImage: '../../../public/img/home/36.jpg',
+        rightTopLocation: '象鼻岩',
+        rightBottomImage: '../../../public/img/home/37.jpg',
+        rightBottomLocation: '北石門名勝',
+        title: '北海岸海景之旅',
+        description: '北海岸的海景真是美不勝收。壯觀的岩石形成和蔚藍的海洋相映成趣，讓我在海邊散步時感到心曠神怡。當地的海鮮餐廳也提供了豐富的美食選擇，是海景愛好者的最佳去處。',
+        rating: '../../../public/img/home/17.png',
+        date: '發佈於2024年6月20日星期四',
+        author: '劉志明'
     }
 ];
 

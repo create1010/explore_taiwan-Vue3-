@@ -1,0 +1,81 @@
+//section-detail
+.section-detail {
+    box-sizing: border-box;
+
+    .detailBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-image: url(/public/img/remember/7.png);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            opacity: .7;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        span {
+            display: block;
+            font-size: 20px;
+        }
+    }
+
+    .content {
+        display: flex;
+        margin-bottom: 20px;
+
+        .picture {
+            width: 50%;
+
+            img {
+                width: 100%;
+                vertical-align: top;
+            }
+        }
+
+        .text {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 10px;
+
+            h3 {
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+            p {
+                letter-spacing: .2em;
+                line-height: 1.5em;
+            }
+
+            span {
+                text-align: right;
+            }
+        }
+    }
+
+}

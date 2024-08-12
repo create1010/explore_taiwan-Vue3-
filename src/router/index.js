@@ -10,13 +10,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView,
       meta:{title:"探索台灣 Explorem Taiwan"}
     },
     {
       path: '/brand',
-      name: 'brand',
+      name: 'Brand',
       component: ()=>import('../views/BrandView.vue'),
       meta:{title:"品牌理念"}
     },
@@ -37,6 +37,13 @@ const router = createRouter({
       name: 'Remember',
       component: ()=>import('../views/RememberView.vue'),
       meta:{title:"美好回憶"}
+    },
+    {
+      path: '/Detail/:id',
+      name: 'Detail',
+      component: ()=>import('../views/DetailView.vue'),
+      meta:{title:"詳情資訊"},
+      props:true
     },
     {
       path: '/Connection',
