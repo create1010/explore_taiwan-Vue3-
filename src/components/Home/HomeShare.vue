@@ -83,7 +83,7 @@ const contents = [
         rightBottomLocation: '多良車站',
         title: '花東海岸魅力行',
         description: '作為一名旅客，我被台灣花東海岸的魅力所折服，壯麗的海景、迷人的沙灘和原生態的自然景觀讓我心曠神怡，友善的當地人和豐富多樣的海岸活動讓我流連忘返。我給予花東景觀極高評價，非常推薦喜歡自然生態景觀的旅人。',
-        rating: '/public/img/home/16.png',
+        rating: '/img/home/16.png',
         date: '發佈於2024年3月28日星期四',
         author: '王曉明'
     },
