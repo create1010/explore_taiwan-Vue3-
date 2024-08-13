@@ -45,8 +45,12 @@
                 justify-content: center;
                 margin-bottom: 20px;
 
-                img {
-                    margin-right: 10px;
+
+                .logo {
+                    img {
+                        width: 50%;
+                        vertical-align: top;
+                    }
                 }
 
                 h1 {

@@ -61,17 +61,17 @@ import { useRouter } from 'vue-router';
 
 const username = ref('')
 const password = ref('')
-const route = useRouter()
+const router = useRouter()
 //測試用帳號、密碼
 
-const testuser = 'a123456'
+const testuser = 'a123456@gmail.com'
 const testpassword = 'behappy666'
 
 //methodes
 const checkInput = () => {
     if (username.value === testuser && password.value === testpassword) {
         alert('登入成功!');
-        route.push({ name: 'home' })   //登入ˋ成功跳轉回首頁
+        router.push({ name: 'Home' })   //登入成功跳轉回首頁
     } else {
         alert('帳號密碼錯誤，請重新登入')
     }

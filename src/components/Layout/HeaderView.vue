@@ -4,9 +4,7 @@
             <div class="container">
                 <nav class="navigation">
                     <RouterLink to="/" class="logoIndex">
-                        <div class="navLogo">
-                            <img src="../../../public/logo-white.png" width="120" alt="explorem taiwan 探索台灣">
-                        </div>
+                        <img src="../../../public/logo-white.png" width="120" alt="explorem taiwan 探索台灣">
                     </RouterLink>
                     <ul class="navbar">
                         <li>

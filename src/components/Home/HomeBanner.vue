@@ -5,7 +5,10 @@
             <div class="banner">
                 <div class="content">
                     <div class="title">
-                        <img src="../../../public/logo-white.png" width="200" alt="Explorem Taiwan" @focus="showResult">
+                        <div class="logo">
+                            <img src="../../../public/img/home/index_logo.png" alt="Explorem Taiwan"
+                                @focus="showResult">
+                        </div>
                         <h1>Explore Taiwan</h1>
                     </div>
                     <h2>讓台灣的美景成為你旅行的背景！</h2>

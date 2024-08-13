@@ -17,6 +17,21 @@
                         <span>遊客 {{ detail.tourists }} 評論於 {{ detail.date }} </span>
                     </div>
                 </div>
+                <div class="controlPage">
+                    <div class="page">
+                        <RouterLink>
+                            <i class="fa-solid fa-angle-left"></i>
+                            <span>上一則</span>
+                        </RouterLink>
+                        <RouterLink>
+                            <span>下一則</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </RouterLink>
+                    </div>
+                    <div class="returnList">
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -24,6 +39,8 @@
 
 <script setup>
 import { defineProps, computed } from 'vue';
+import { RouterLink } from 'vue-router';
+
 
 const props = defineProps({ id: String });
 

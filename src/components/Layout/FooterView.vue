@@ -20,7 +20,7 @@
                         <h3>電子郵件</h3>
                         <span>explore168@gmail.com</span>
                     </div>
-                    <span class="tibame">本網站為緯育TibaMe前端工程師班第__期學員專題作品，本平台僅供學習、展示之用。</span>
+                    <span class="tibame">本作品為自身創作非營利所用，若有侵權相關問題請來信plae56782@gmail.com</span>
                 </div>
                 <div class="sub">
                     <span class="subscription">立即獲得用戶限定優惠及私房景點資訊!</span>
