@@ -28,8 +28,8 @@
                     </div>
                 </div>
                 <div class="centerPicture">
-                    <img src="../../../public/img/home/6.png" alt="龍虎塔">
-                    <img src="../../../public/img/home/5.png" alt="步道">
+                    <img src="/public/img/home/6.png" alt="龍虎塔">
+                    <img src="/public/img/home/5.png" alt="步道">
                 </div>
                 <div class="rightContent">
                     <div class="why">

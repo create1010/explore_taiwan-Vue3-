@@ -34,14 +34,14 @@ const AttractionsList = reactive([
         id: 1,
         location: '新北市',
         name: '九份老街',
-        image: '../../../public/img/home/22.png',
+        image: '/public/img/home/22.png',
         alt: '九份老街'
     },
     {
         id: 2,
         location: '台北市',
         name: '象山',
-        image: '../../../public/img/home/23.png',
+        image: '/public/img/home/23.png',
         alt: '象山'
     }
 ])
