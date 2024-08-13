@@ -15,7 +15,7 @@
             <div class="under">
                 <div class="logo">
                     <div class="pic">
-                        <img src="/public/logo-white.png" alt="logo">
+                        <img src="/logo-white.png" alt="logo">
                     </div>
                     <h2>Explore Taiwan</h2>
                 </div>
@@ -39,17 +39,17 @@ const { top } = store
 
 const styleList = reactive([
     {
-        img: '/public/img/brand/3.jpg',
+        img: '/img/brand/3.jpg',
         alt: 'life',
         text: 'Life Style'
     },
     {
-        img: '/public/img/brand/4.jpg',
+        img: '/img/brand/4.jpg',
         alt: 'Taste',
         text: 'Taste'
     },
     {
-        img: '/public/img/brand/5.jpg',
+        img: '/img/brand/5.jpg',
         alt: 'Enjoy',
         text: 'Enjoy'
     },

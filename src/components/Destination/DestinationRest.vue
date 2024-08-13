@@ -19,23 +19,23 @@ import { ref } from 'vue';
 
 const areaImgList = ref([
     {
-        img: '/public/img/destination/15.png',
+        img: '/img/destination/15.png',
         location: '台北 Taipei'
     },
     {
-        img: '/public/img/destination/16.png',
+        img: '/img/destination/16.png',
         location: '桃園 Taoyuan '
     },
     {
-        img: '/public/img/destination/17.png',
+        img: '/img/destination/17.png',
         location: '台中 Taichung '
     },
     {
-        img: '/public/img/destination/18.png',
+        img: '/img/destination/18.png',
         location: '台南 Tainan'
     },
     {
-        img: '/public/img/destination/19.png',
+        img: '/img/destination/19.png',
         location: '高雄 Kaohsiung '
     },
 ])

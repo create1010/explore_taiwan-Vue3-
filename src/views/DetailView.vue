@@ -103,7 +103,7 @@ const detail = computed(() => {
     if (filterDetail) {
         return {
             ...filterDetail,    //複製屬性，保留原陣列資訊
-            img: `/public/img/remember/${filterDetail.id}.png`
+            img: `/img/remember/${filterDetail.id}.png`
         };
     }
     return null;

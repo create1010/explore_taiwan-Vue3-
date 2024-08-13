@@ -1,12 +1,12 @@
 <template>
     <section class="section section-bannerWrap">
-        <video class="videoBg" autoplay muted loop src="/public/video/index-video.mp4"></video>
+        <video class="videoBg" autoplay muted loop src="/video/index-video.mp4"></video>
         <div class="container">
             <div class="banner">
                 <div class="content">
                     <div class="title">
                         <div class="logo">
-                            <img src="/public/img/home/index_logo.png" alt="Explorem Taiwan" @focus="showResult">
+                            <img src="/img/home/index_logo.png" alt="Explorem Taiwan" @focus="showResult">
                         </div>
                         <h1>Explore Taiwan</h1>
                     </div>

@@ -4,7 +4,7 @@
             <div class="about">
                 <div class="on">
                     <div class="image">
-                        <img src="/public/img/brand/1.jpg">
+                        <img src="/img/brand/1.jpg">
                     </div>
                     <div class="text">
                         <h2>關於 Explore Taiwan 的誕生</h2>
@@ -19,7 +19,7 @@
                             Explore Taiwan，我們希望能夠為旅客提供深入了解這塊自己土生土長在這塊美麗的地方</p>
                     </div>
                     <div class="image">
-                        <img src="/public/img/brand/2.jpg">
+                        <img src="/img/brand/2.jpg">
                     </div>
                 </div>
             </div>
