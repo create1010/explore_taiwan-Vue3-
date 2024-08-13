@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <DestinationTitle />
-        <DestinationPopularity />
-        <DestinationTransportation />
-        <DestinationFood />
-        <DestinationRest />
-        <DestinationServe />
-    </div>
+    <DestinationTitle />
+    <DestinationPopularity />
+    <DestinationTransportation />
+    <DestinationFood />
+    <DestinationRest />
+    <DestinationServe />
 </template>
 
 <script setup>
