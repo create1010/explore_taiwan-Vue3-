@@ -19,18 +19,21 @@
                 </div>
                 <div class="controlPage">
                     <div class="page">
-                        <RouterLink>
+                        <RouterLink :to="prevPage">
                             <i class="fa-solid fa-angle-left"></i>
                             <span>上一則</span>
                         </RouterLink>
-                        <RouterLink>
+                        <RouterLink :to="nextPage">
                             <span>下一則</span>
                             <i class="fa-solid fa-angle-right"></i>
                         </RouterLink>
                     </div>
-                    <div class="returnList">
-
-                    </div>
+                </div>
+                <div class="returnList">
+                    <RouterLink to="/Remember" class="icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>返回列表</span>
+                    </RouterLink>
                 </div>
             </div>
         </div>
@@ -94,6 +97,12 @@ const detailList = [
         date: '2021/6/6',
     },
 ]
+//當前頁面
+const currentIndex = computed(() => {
+    return detailList.findIndex(e => e.id === props.id);
+});
+
+
 
 //使用computed從接收id與detailList陣列中id做比對，使用find函式尋找，接著判斷如果比對到相同值
 //圖片使用動態方式依id值生成相對應的資訊
@@ -109,6 +118,15 @@ const detail = computed(() => {
     return null;
 });
 
+const prevPage = computed(() => {
+    const index = currentIndex.value - 1;
+    return index >= 0 ? detailList[index].id : '';
+});
+
+const nextPage = computed(() => {
+    const index = currentIndex.value + 1;
+    return index < detailList.length ? detailList[index].id : '';
+});
 </script>
 
 <style scoped></style>
