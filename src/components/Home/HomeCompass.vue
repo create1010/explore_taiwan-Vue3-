@@ -35,7 +35,7 @@
                             <div class="story">
                                 <span>{{ story.content }}</span>
                                 <div class="read">
-                                    <RouterLink to="#">
+                                    <RouterLink to="/brand">
                                         閱讀故事
                                         <i class="fa-solid fa-angles-right"></i>
                                     </RouterLink>

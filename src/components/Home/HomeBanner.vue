@@ -11,14 +11,16 @@
                         <h1>Explore Taiwan</h1>
                     </div>
                     <h2>讓台灣的美景成為你旅行的背景！</h2>
-                    <div class="search">
-                        <input type="search" placeholder="搜尋" v-model="searchInput" @input="isShowResult"
-                            @blur="hiddenlog">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="searchInput">
+                        <div class="search">
+                            <input type="search" placeholder="搜尋" v-model="searchInput" @input="isShowResult"
+                                @blur="hiddenlog">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <ul class="logBar" v-if="showResult">
+                            <li v-for="item in filterSearch" :key="item.id">{{ item.name }}</li>
+                        </ul>
                     </div>
-                    <ul class="logBar" v-if="showResult">
-                        <li v-for="item in filterSearch" :key="item.id">{{ item.name }}</li>
-                    </ul>
                 </div>
             </div>
         </div>

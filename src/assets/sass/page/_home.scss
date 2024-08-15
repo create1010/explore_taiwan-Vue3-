@@ -66,55 +66,62 @@
                 margin-bottom: 20px;
             }
 
-            .search {
+            .searchInput {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
+                flex-direction: column;
 
-                input {
+                .search {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
                     width: 100%;
-                    background-color: transparent;
-                    border: 2px solid #fff;
-                    border-radius: 10px;
-                    padding: 10px 40px 10px 10px;
-                    color: #fff;
+                    max-width: 400px;
+                    margin: 0 auto;
 
-                    &::placeholder {
+                    input {
+                        width: 100%;
+                        background-color: transparent;
+                        border: 2px solid #fff;
+                        border-radius: 10px;
+                        padding: 10px 40px 10px 10px;
                         color: #fff;
+
+                        &::placeholder {
+                            color: #fff;
+                        }
+
+                        &:focus {
+                            outline: none;
+                        }
                     }
 
-                    &:focus {
-                        outline: none;
+                    i {
+                        position: absolute;
+                        right: 15px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #fff;
+                        cursor: pointer;
                     }
                 }
 
-                i {
-                    position: absolute;
-                    right: 15px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color: #fff;
-                    cursor: pointer;
-                }
-            }
+                .logBar {
+                    background-color: rgba(196, 195, 195, 0.7);
+                    padding: 10px 0;
+                    border-radius: 0 0 10px 10px;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    width: 75%;
 
-            .logBar {
-                background-color: rgba(196, 195, 195, 0.7);
-                padding: 10px 0;
-                border-radius: 0 0 10px 10px;
-                margin: auto;
-                width: 85%;
+                    li {
+                        cursor: pointer;
+                        transition: .3s ease;
 
-                li {
-                    cursor: pointer;
-                    transition: .3s ease;
-
-                    &:hover {
-                        color: rgb(11, 47, 71);
+                        &:hover {
+                            color: rgb(11, 47, 71);
+                        }
                     }
                 }
             }

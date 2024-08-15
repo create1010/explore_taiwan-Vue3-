@@ -24,9 +24,9 @@
                 </div>
                 <div class="sub">
                     <span class="subscription">立即獲得用戶限定優惠及私房景點資訊!</span>
-                    <form>
-                        <input type="email" placeholder="請輸入email">
-                        <button class="edm">訂閱電子報</button>
+                    <form @submit.prevent="sendEmail">
+                        <input type="email" placeholder="請輸入email" v-model="user">
+                        <button class="edm" @click="sendEmail">訂閱電子報</button>
                     </form>
                     <div class="icon">
                         <RouterLink to="#"><i class="fa-brands fa-facebook-f"></i></RouterLink>
@@ -42,17 +42,45 @@
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import Swal from 'sweetalert2';
+import { reactive, computed, ref } from 'vue'
 import { RouterLink } from 'vue-router';
 import { useRoute } from 'vue-router'
 
 //數據
-const location = reactive(['新北', '台北', '桃園', '台中', '高雄'])
 const route = useRoute()
+const location = reactive(['新北', '台北', '桃園', '台中', '高雄'])
+const emailData = ref([]);
+const user = ref('')
+
 const footerToggle = computed(() => {
     const hiddenFooter = ['Detail'];
     return !hiddenFooter.includes(route.name)
 })
+//判斷輸入郵件是否重複
+const sendEmail = () => {
+    if (user.value == '') {
+        Swal.fire({
+            title: '請輸入有效電子郵件',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+    } else if (emailData.value.includes(user)) {
+        Swal.fire({
+            title: '此信箱已訂閱，請重新輸入',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    } else {
+        emailData.value.push(user);
+        Swal.fire({
+            title: '感謝訂閱，將不定期發送活動資訊和會員專屬福利',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+        user.value = ''; // 清空輸入框
+    }
+}
 </script>
 
 <style lang="scss" scoped></style>

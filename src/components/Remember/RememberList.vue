@@ -8,7 +8,7 @@
                     <span>All in this moment</span>
                 </div>
                 <div class="picture">
-                    <div class="card" v-for="card in cardList" :key="card.id">
+                    <div class="card" v-for="card in showList" :key="card.id">
                         <div class="image">
                             <RouterLink :to="{ name: 'Detail', params: { id: card.id } }">
                                 <img :src="card.img" :alt="card.alt">
@@ -17,11 +17,11 @@
                         <span>{{ card.content }}</span>
                     </div>
                 </div>
-                <div class="moreBtn">
-                    <RouterLink to="#" class="loadMore">
+                <div class="moreBtn" v-if="showList.length < cardList.length">
+                    <button class="loadMore" @click="moreDownload">
                         <i class="fa-solid fa-file-circle-plus"></i>
                         <span>載入更多</span>
-                    </RouterLink>
+                    </button>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 //data
 const cardList = reactive([
@@ -69,6 +69,55 @@ const cardList = reactive([
         alt: '綠島',
         content: '絕世美景：大自然的饋贈與島民的熱情'
     },
+    {
+        id: '7',
+        img: '/img/remember/7.png',
+        alt: '九份老街',
+        content: '九份奇幻：尋找昔日金礦小鎮的迷人魅力'
+    },
+    {
+        id: '8',
+        img: '/img/remember/8.png',
+        alt: '高美濕地',
+        content: '高美夕照：自然與人文交織的美麗畫卷'
+    },
+    {
+        id: '9',
+        img: '/img/remember/9.png',
+        alt: '墾丁國家公園',
+        content: '墾丁風情：享受南台灣的陽光與海洋之美'
+    },
+    {
+        id: '10',
+        img: '/img/remember/10.png',
+        alt: '澎湖雙心石滬',
+        content: '雙心石滬：澎湖的愛情象徵與自然奇景'
+    },
+    {
+        id: '11',
+        img: '/img/remember/11.png',
+        alt: '台南安平古堡',
+        content: '安平古堡：見證台灣歷史的時光印記'
+    },
+    {
+        id: '12',
+        img: '/img/remember/12.png',
+        alt: '宜蘭龜山島',
+        content: '龜山島：探訪自然奇觀與壯麗景色的絕佳去處'
+    },
 ])
+const show = ref(6);
+
+const showList = computed(() => {
+    return cardList.slice(0, show.value);
+})
+
+const moreDownload = () => {
+    if (show.value + 6 <= cardList.length) {
+        show.value += 6;
+    } else {
+        show.value = cardList.length;
+    }
+}
 
 </script>
