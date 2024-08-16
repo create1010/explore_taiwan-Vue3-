@@ -23,22 +23,17 @@
                                 Gmail登入
                             </button>
                         </div>
-                        <form>
+                        <form @submit.prevent="checkInput">
                             <div class="enter">
-                                <input v-model="username" type="email" placeholder="請輸入電子郵件" required>
+                                <input v-model="user" type="email" placeholder="請輸入電子郵件" required>
                                 <input v-model="password" type="password" placeholder="密碼" required>
                             </div>
-                            <div class="check">
-                                <div class="remember">
-                                    <input type="checkbox" id="rememberMe">
-                                    <label for="rememberMe">記住我</label>
-                                </div>
-                                <div class="forget">
-                                    <RouterLink>忘記密碼</RouterLink>
-                                </div>
+                            <div class="memberOperate">
+                                <RouterLink to="#" class="add">加入會員</RouterLink>
+                                <RouterLink to="#" class="forget">忘記密碼</RouterLink>
                             </div>
                             <div class="logunBtn">
-                                <button @click="checkInput">登入</button>
+                                <button type="submit">登入</button>
                             </div>
 
                         </form>
@@ -58,22 +53,37 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import Swal from 'sweetalert2';
+import { useMemberStore } from '@/stores/userLogin';
 
-const username = ref('')
+const user = ref('')
 const password = ref('')
 const router = useRouter()
+const userStore = useMemberStore()
 //測試用帳號、密碼
 
-const testuser = 'a123456@gmail.com'
-const testpassword = 'behappy666'
+const testname = 'John Chen'
+const testuser = 'demo@gmail.com'
+const testpassword = 'demo123'
+const testAvater = '/img/login/userAvater.png'
 
 //methodes
 const checkInput = () => {
-    if (username.value === testuser && password.value === testpassword) {
-        alert('登入成功!');
-        router.push({ name: 'Home' })   //登入成功跳轉回首頁
+    if (user.value === testuser && password.value === testpassword) {
+        Swal.fire({
+            title: '登入成功',
+            icon: 'success'
+        }).then(() => {
+            userStore.login(testname, testAvater);
+            router.push({ name: 'Home' })   //登入成功跳轉回首頁
+        });
     } else {
-        alert('帳號密碼錯誤，請重新登入')
+        Swal.fire({
+            title: '帳號密碼錯誤，請重新登入',
+            icon: 'error'
+        })
+        user.value = '';
+        password.value = '';
     }
 
 }

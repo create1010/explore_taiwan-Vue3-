@@ -23,7 +23,14 @@
                             <RouterLink to="/Connection">聯絡我們</RouterLink>
                         </li>
                     </ul>
-                    <div class="loginbar">
+                    <div class="userLogin" v-if="useStore.loginStatus === true">
+                        <div class="user">
+                            <img :src="useStore.avatar" alt="userAvater">
+                            <span>{{ useStore.username }}</span>
+                        </div>
+                        <span class="loginOut" @click="singOut">登出</span>
+                    </div>
+                    <div class="loginbar" v-else>
                         <RouterLink to="/Login">會員登入</RouterLink>
                     </div>
                 </nav>
@@ -40,8 +47,9 @@ import { useScrollStore } from '../../stores/homeScroll'
 
 const navScroll = ref(null);
 const scrollStore = useScrollStore();
+import { useMemberStore } from '@/stores/userLogin';
 
-
+const useStore = useMemberStore();
 const handleScroll = () => {
     // 判斷捲動位置是否超過 900px
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -53,6 +61,9 @@ const handleScroll = () => {
         scrollStore.setTransparent(false);
     }
 };
+const singOut = () => {
+    useStore.loginOut()
+}
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
