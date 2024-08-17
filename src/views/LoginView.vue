@@ -19,8 +19,10 @@
                                 Twitter登入
                             </button>
                             <button>
-                                <i class="fa-brands fa-google-plus-g"></i>
-                                Gmail登入
+                                <GoogleLogin :clientId="clientID" :checkLogin="checkLogin">
+                                    <i class="fa-brands fa-google-plus-g"></i>
+                                    Gmail登入
+                                </GoogleLogin>
                             </button>
                         </div>
                         <form @submit.prevent="checkInput">
@@ -51,15 +53,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Swal from 'sweetalert2';
 import { useMemberStore } from '@/stores/userLogin';
+import { GoogleLogin } from 'vue3-google-login'
+import { ref } from 'vue';
+
 
 const user = ref('')
 const password = ref('')
 const router = useRouter()
 const userStore = useMemberStore()
+//google OAuth
+const clientID = '964772444387-120m7lhr7vc98i00t0jf9skcjubhe4q5.apps.googleusercontent.com';
 //測試用帳號、密碼
 
 const testname = 'John Chen'
@@ -86,6 +92,9 @@ const checkInput = () => {
         password.value = '';
     }
 
+}
+const checkLogin = (response) => {
+    console.log("Google login response:", response);
 }
 
 </script>

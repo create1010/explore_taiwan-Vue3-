@@ -24,9 +24,11 @@
                         </li>
                     </ul>
                     <div class="userLogin" v-if="useStore.loginStatus === true">
-                        <div class="user">
-                            <img :src="useStore.avatar" alt="userAvater">
-                            <span>{{ useStore.username }}</span>
+                        <div class="userList">
+                            <div class="user">
+                                <img :src="useStore.avatar" alt="userAvater">
+                                <span>{{ useStore.username }}</span>
+                            </div>
                         </div>
                         <span class="loginOut" @click="singOut">登出</span>
                     </div>

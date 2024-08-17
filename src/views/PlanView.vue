@@ -1,6 +1,9 @@
 <template>
     <section class="section section-planPage">
         <div class="container">
+            <div class="loading" v-if="loading">
+                <div class="loadingAnimatiom"></div>
+            </div>
             <div class="controlFlex" v-if="useStore.loginStatus === true">
                 <PlanBar class="planBar" />
                 <PlanTest />
@@ -16,17 +19,21 @@
 import PlanBar from '@/components/Plan/PlanBar.vue';
 import PlanTest from '@/components/Plan/PlanTest.vue';
 import { useMemberStore } from '@/stores/userLogin';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const useStore = useMemberStore()
 const router = useRouter()
+const loading = ref(true)
 
 onMounted(() => {
     if (useStore.loginStatus === false) {
         setTimeout(() => {
+            loading.value = false
             router.push('/Login')
         }, 5000)
+    } else {
+        loading.value = false
     }
 })
 
@@ -37,6 +44,28 @@ onMounted(() => {
     height: calc(100vh - 66.47px - 232px);
     padding: 0;
     position: relative;
+
+    .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 10;
+
+        .loadingAnimatiom {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: transparent;
+            border-radius: 100%;
+            animation: spin 1s linear infinite;
+        }
+    }
 
     .controlFlex {
         display: flex;
@@ -56,6 +85,16 @@ onMounted(() => {
             color: #fff;
 
         }
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 </style>

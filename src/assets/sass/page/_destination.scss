@@ -116,9 +116,11 @@
             background-color: #fff;
             border-radius: 5px;
             position: relative;
+            width: 50%;
 
             .image {
                 width: 100%;
+                overflow: hidden;
                 margin-bottom: 10px;
 
                 img {
@@ -161,10 +163,17 @@
             .content {
                 letter-spacing: .1em;
                 line-height: 1.2em;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-                a {
-                    color: #000;
-                }
+            a {
+                display: flex;
+                justify-content: end;
+                color: #000;
             }
         }
     }
