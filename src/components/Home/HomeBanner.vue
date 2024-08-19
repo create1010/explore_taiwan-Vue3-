@@ -76,10 +76,8 @@ const isShowResult = () => {
 
 //
 const hiddenlog = () => {
-    setTimeout(() => {
-        if (searchInput.value.length === 0) {
-            showResult.value = false;
-        }
-    })
+    if (searchInput.value.length === 0) {
+        showResult.value = false;
+    }
 }
 </script>

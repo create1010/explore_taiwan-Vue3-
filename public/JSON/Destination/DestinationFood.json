@@ -1,0 +1,182 @@
+[
+  {
+    "id": "1",
+    "area": 1,
+    "image": "/img/destination/27.jpg",
+    "title": "鼎泰豐小籠包",
+    "start": "/img/destination/26.png",
+    "count": "(10,345)",
+    "detail": "鼎泰豐的小籠包以其精緻的製作工藝聞名，薄薄的餃皮內包裹著多汁的豬肉餡，搭配清爽的醋和薑絲，堪稱台北的經典美食。"
+  },
+  {
+    "id": "2",
+    "area": 1,
+    "image": "/img/destination/28.jpg",
+    "title": "鴨肉扁",
+    "start": "/img/destination/25.png",
+    "count": "(7,824)",
+    "detail": "鴨肉扁是新北的老字號餐廳，主打鴨肉湯飯。鴨肉片薄且滑嫩，湯頭清香不油膩，搭配香米飯，是在地人喜愛的家常美味。"
+  },
+  {
+    "id": "3",
+    "area": 1,
+    "image": "/img/destination/29.jpg",
+    "title": "廟口天婦羅",
+    "start": "/img/destination/25.png",
+    "count": "(5,987)",
+    "detail": "基隆廟口的天婦羅是一道外酥內嫩的小吃，以新鮮魚漿製成，搭配甜醬食用，深受遊客和當地居民的喜愛。"
+  },
+  {
+    "id": "4",
+    "area": 1,
+    "image": "/img/destination/30.jpg",
+    "title": "阜杭豆漿",
+    "start": "/img/destination/26.png",
+    "count": "(12,456)",
+    "detail": "阜杭豆漿是台北著名的早餐店，以其濃郁的豆漿和酥脆的燒餅聞名。無論是熱騰騰的鹹豆漿還是配上蛋餅的燒餅，都是台北早晨最具代表性的味覺享受。每日早晨，店外長長的排隊隊伍便能證明這裡美食的吸引力。"
+  },
+  {
+    "id": "5",
+    "area": 2,
+    "image": "/img/destination/31.jpg",
+    "title": "宮原眼科",
+    "start": "/img/destination/25.png",
+    "count": "(12,123)",
+    "detail": "宮原眼科的冰淇淋以其獨特的口味和精緻的造型聞名，從濃郁的巧克力到清新的水果口味，滿足了各種味蕾，是台中的必吃美食。"
+  },
+  {
+    "id": "6",
+    "area": 2,
+    "image": "/img/destination/32.jpg",
+    "title": "阿三肉圓",
+    "start": "/img/destination/24.png",
+    "count": "(5,678)",
+    "detail": "阿三肉圓是彰化的知名小吃店，以其外皮酥脆、內餡鮮嫩的肉圓聞名。每顆肉圓都經過精心製作，內含豐富的豬肉餡和獨特的調味料，搭配自家製的醬料，口感層次豐富，讓人一試成主顧。"
+  },
+  {
+    "id": "7",
+    "area": 2,
+    "image": "/img/destination/33.jpg",
+    "title": "天利食堂",
+    "start": "/img/destination/25.png",
+    "count": "(3,456)",
+    "detail": "天利食堂是一家在草屯頗受歡迎的餐廳，以其經典的台式家常菜聞名。菜單上有各式道地的台式小吃，如滷肉飯、炸醬麵等，味道濃郁且實惠，是當地居民常光顧的地方。"
+  },
+  {
+    "id": "8",
+    "area": 2,
+    "image": "/img/destination/34.jpg",
+    "title": "新月梧桐",
+    "start": "/img/destination/26.png",
+    "count": "(3,278)",
+    "detail": "新月梧桐以其獨特的客家菜聞名，招牌菜包括鹽酥雞和客家小炒，搭配傳統的客家米酒，風味獨特。餐廳環境優雅，適合家庭聚餐或朋友聚會。"
+  },
+  {
+    "id": "9",
+    "area": 3,
+    "image": "/img/destination/35.jpg",
+    "title": "海之冰芒果冰",
+    "start": "/img/destination/25.png",
+    "count": "(15,234)",
+    "detail": "海之冰的芒果冰是高雄夏日的必備美食，使用新鮮的芒果切片和細滑的刨冰，淋上甜蜜的芒果醬，每一口都是清涼的享受。"
+  },
+  {
+    "id": "10",
+    "area": 3,
+    "image": "/img/destination/36.jpg",
+    "title": "度小月擔仔麵",
+    "start": "/img/destination/25.png",
+    "count": "(8,765)",
+    "detail": "度小月的擔仔麵以其細緻的豬肉燉湯和Q彈的麵條著稱，加上一顆滷蛋和少許蒜泥，簡單卻美味，是台南經典的代表性小吃。"
+  },
+  {
+    "id": "11",
+    "area": 3,
+    "image": "/img/destination/37.jpg",
+    "title": "阿榮坊風味海鮮餐廳",
+    "start": "/img/destination/25.png",
+    "count": "(3,875)",
+    "detail": "位於屏東東港，以新鮮直送的海鮮料理聞名。無論是蒸煮的鮮魚、燒烤的海鮮拼盤，還是特製的海鮮鍋，餐廳都以細膩的手法展現食材的原味，深受當地居民和遊客的喜愛，是品味東港海鮮的絕佳選擇。"
+  },
+  {
+    "id": "12",
+    "area": 3,
+    "image": "/img/destination/38.jpg",
+    "title": "龍舞雲海阿里山現採高山蔬菜火鍋",
+    "start": "/img/destination/24.png",
+    "count": "(3,576)",
+    "detail": "以阿里山新鮮採摘的高山蔬菜為主料，搭配清甜的湯頭，口感清爽而不油膩，讓人一口便能感受到大自然的芬芳與純淨，是來訪阿里山的遊客必嘗的美食之一。原店名為山上人家，這裡的火鍋不僅讓您品味到當地的自然風味，更讓人感受到阿里山的壯麗雲海景色。"
+  },
+  {
+    "id": "13",
+    "area": 4,
+    "image": "/img/destination/39.jpg",
+    "title": "公正包子",
+    "start": "/img/destination/24.png",
+    "count": "(8,123)",
+    "detail": "公正包子是花蓮著名的小吃，以其大份量和豐富的餡料而聞名。每一顆包子都用心製作，外皮軟嫩，內餡充滿了新鮮的豬肉和蔬菜，口感層次分明。無論是當地人還是遊客，都喜愛這種經典的花蓮風味。"
+  },
+  {
+    "id": "14",
+    "area": 4,
+    "image": "/img/destination/40.jpg",
+    "title": "液香扁食",
+    "start": "/img/destination/25.png",
+    "count": "(8,345)",
+    "detail": "液香扁食是花蓮當地知名的小吃，以其獨特的製作工藝聞名。扁食皮薄餡多，內餡豐富且鮮美，常常搭配自製的醬料和新鮮蔬菜，口感多層次，讓人每一口都充滿驚喜。這道美食深受當地居民和遊客的喜愛，是花蓮地區的經典小吃之一。"
+  },
+  {
+    "id": "15",
+    "area": 4,
+    "image": "/img/destination/41.jpg",
+    "title": "柯氏蔥油餅",
+    "start": "/img/destination/26.png",
+    "count": "(8,234)",
+    "detail": "柯氏蔥油餅是宜蘭知名的小吃，以手工製作的薄脆外皮和豐富的蔥香味著稱。每一口咬下去，外皮酥脆，內部的蔥香味十足，搭配特製醬料，更添風味，是當地人和遊客都喜愛的美食。"
+  },
+  {
+    "id": "16",
+    "area": 4,
+    "image": "/img/destination/42.jpg",
+    "title": "阿鋐炸雞",
+    "start": "/img/destination/25.png",
+    "count": "(3,576)",
+    "detail": "阿鋐炸雞是台東著名的小吃，以外酥內嫩的口感和獨特的香料醃製聞名。每一口都充滿了濃郁的雞肉香味和恰到好處的脆皮，是當地人和遊客不可錯過的美食之一。"
+  },
+  {
+    "id": "17",
+    "area": 5,
+    "image": "/img/destination/20.png",
+    "title": "永春廣東粥",
+    "start": "/img/destination/25.png",
+    "count": "(2,898)",
+    "detail": "金門的永春廣東粥是當地知名的特色美食，以濃郁的粥底搭配各式海鮮和肉類，口感鮮美豐富，是金門人和遊客喜愛的美食之一。"
+  },
+  {
+    "id": "18",
+    "area": 5,
+    "image": "/img/destination/21.jpg",
+    "title": "阿妹鼎邊糊",
+    "start": "/img/destination/25.png",
+    "count": "(438)",
+    "detail": "當地知名的美食店，提供豐富的海鮮、蔬菜和麵粉熬煮而成的糊狀料理。這道獨特的美食口感濃郁綿密，令人回味無窮。"
+  },
+  {
+    "id": "19",
+    "area": 5,
+    "image": "/img/destination/22.jpg",
+    "title": "阿豹香腸攤",
+    "start": "/img/destination/24.png",
+    "count": "(2,127)",
+    "detail": "以新鮮豬肉製作的香腸香氣撲鼻，口感鮮嫩多汁，成為澎湖地區的經典美食之一提供多種口味的香腸，不僅賣烤香腸、大腸包小腸，也賣關東煮及一些小吃料理。"
+  },
+  {
+    "id": "20",
+    "area": 5,
+    "image": "/img/destination/23.jpg",
+    "title": "蘭嶼阿東飛魚刈包",
+    "start": "/img/destination/26.png",
+    "count": "(492)",
+    "detail": "新鮮的飛魚製成，搭配軟硬適中的麵包，口感酥脆香嫩。飛魚刈包不僅是蘭嶼居民的日常飲食，也是遊客必嚐的道地美味。"
+  }
+]

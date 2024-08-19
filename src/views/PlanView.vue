@@ -19,21 +19,28 @@
 import PlanBar from '@/components/Plan/PlanBar.vue';
 import PlanTest from '@/components/Plan/PlanTest.vue';
 import { useMemberStore } from '@/stores/userLogin';
-import { onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const useStore = useMemberStore()
 const router = useRouter()
 const loading = ref(true)
+let planPage = null
 
 onMounted(() => {
     if (useStore.loginStatus === false) {
-        setTimeout(() => {
+        planPage = setTimeout(() => {
             loading.value = false
             router.push('/Login')
-        }, 5000)
+        }, 3000)
     } else {
         loading.value = false
+    }
+})
+
+onBeforeUnmount(() => {
+    if (planPage) {
+        clearTimeout(planPage)
     }
 })
 

@@ -32,41 +32,20 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { ref, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const cardData = reactive([
-    {
-        picture: '/img/destination/4.png',
-        title: '1.平溪老街',
-        image: '/img/destination/2.png',
-        count: '1,530',
-        smailetitle: '景點和地標',
-        text: '位於新北市平溪區，是一條保存完整的傳統石板街道，充滿懷舊風情。在這條古老街道上，可以欣賞到日治時期的日式建築，以及豐富的地方特色小吃和手工藝品店。漫步其中，彷彿穿越時光隧道，感受悠久的歷史氛圍。此外，平溪老街以天燈文化聞名，是當地的特色活動之一，吸引著眾多遊客前來放天燈祈福。'
-    },
-    {
-        picture: '/img/destination/5.png',
-        title: '2.高美濕地',
-        image: '/img/destination/3.png',
-        count: '1,196',
-        smailetitle: '自然野生動物區',
-        text: '位於台中市清水區，是一個著名的自然保護區，以壯麗的日落景色和豐富的生態環境聞名。高美濕地擁有多樣的鳥類和濕地生物，是觀鳥和自然愛好者的天堂。遊客可以沿著木棧道漫步，近距離觀察自然生態，同時欣賞到大自然的美麗畫面，是放鬆心靈的理想去處。'
-    },
-    {
-        picture: '/img/destination/6.png',
-        title: '3.象山自然步道',
-        image: '/img/destination/3.png',
-        count: '3,326',
-        smailetitle: '景點和地標',
-        text: '位於台北市信義區，以方便的交通和壯觀的城市景觀著稱。象山自然步道是台北市區內最受歡迎的健行路線之一，全程約需一小時，是親近自然、遠離城市喧囂的好去處。從步道頂端可以俯瞰台北101和台北市區的全景，特別是在清晨或黃昏時分，景色尤為迷人，是拍攝台北夜景的熱門地點。'
-    },
-    {
-        picture: '/img/destination/7.png',
-        title: '4.愛河',
-        image: '/img/destination/1.png',
-        count: '1,130',
-        smailetitle: '景點和地標',
-        text: '位於高雄市，是當地著名的河濱景點，沿河兩岸設有綠意盎然的公園和步道，適合散步、跑步及騎自行車。愛河夜晚燈光璀璨，河面倒映著城市的繁華景象，吸引許多遊客夜遊和乘船觀光。河畔的咖啡廳和餐廳提供放鬆的氛圍，是享受悠閒時光的好地方，也常舉辦各種藝文活動。'
-    },
-])
+const cardData = ref([]);
+
+onMounted(async () => {
+    try {
+        const response = await fetch('/JSON/Destination/DestinationPopularity.json');
+        if (!response.ok) {
+            throw new Error('未取得資訊，請重新嘗試');
+        }
+        cardData.value = await response.json();
+    } catch (error) {
+        console.log('錯誤', error);
+    }
+});
 </script>
