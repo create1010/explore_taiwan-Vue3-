@@ -22,7 +22,7 @@
                         </div>
                         <p>{{ item.detail }}</p>
                         <div class="all">
-                            <RouterLink to="#">詳細資訊</RouterLink>
+                            <span>詳細資訊</span>
                         </div>
                     </div>
                 </div>

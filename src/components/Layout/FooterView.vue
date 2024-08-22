@@ -25,8 +25,8 @@
                 <div class="sub">
                     <span class="subscription">立即獲得用戶限定優惠及私房景點資訊!</span>
                     <form @submit.prevent="sendEmail">
-                        <input type="email" placeholder="請輸入email" v-model="user">
-                        <button class="edm" @click="sendEmail">訂閱電子報</button>
+                        <input placeholder="請輸入email" v-model="user">
+                        <button class="edm">訂閱電子報</button>
                     </form>
                     <div class="icon">
                         <RouterLink to="#"><i class="fa-brands fa-facebook-f"></i></RouterLink>
@@ -59,27 +59,33 @@ const footerToggle = computed(() => {
 })
 //判斷輸入郵件是否重複
 const sendEmail = () => {
-    if (user.value == '') {
+    const email = user.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    console.log(email);
+    console.log(emailPattern.test(email));
+
+    if (email === '' || !emailPattern.test(email)) {
         Swal.fire({
             title: '請輸入有效電子郵件',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
-    } else if (emailData.value.includes(user)) {
+    } else if (emailData.value.includes(email)) {
         Swal.fire({
             title: '此信箱已訂閱，請重新輸入',
             icon: 'error',
             confirmButtonText: 'OK'
         });
     } else {
-        emailData.value.push(user);
+        emailData.value.push(email);
         Swal.fire({
             title: '感謝訂閱，將不定期發送活動資訊和會員專屬福利',
             icon: 'success',
             confirmButtonText: 'OK'
         });
-        user.value = ''; // 清空輸入框
     }
+    user.value = ''; // 清空輸入框
+
 }
 </script>
 

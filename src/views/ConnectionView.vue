@@ -88,7 +88,9 @@
 <script setup>
 import Swal from 'sweetalert2';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const contactUs = ref([
     {
         icon: '<i class="fa-solid fa-phone"></i>',
@@ -133,7 +135,6 @@ const refresh = () => {
 //表單送出檢查確認
 const sendForm = (e) => {
     e.preventDefault();
-    console.log('Form submitted');
     const allfinish = form.value.journey !== '' && form.value.location.trim() !== '' &&
         form.value.name.trim() !== '' && form.value.gender !== '' &&
         form.value.tel.trim() !== '' && form.value.email.trim() !== '' &&
@@ -144,6 +145,8 @@ const sendForm = (e) => {
             text: '我們已收到您的需求，將有專人為您服務',
             icon: 'success',
             showCloseButton: true
+        }).then(() => {
+            router.push({ name: 'Home' });
         })
     } else {
         Swal.fire({

@@ -89,6 +89,17 @@
             justify-content: space-evenly;
             align-items: center;
 
+            .smallest,
+            .maximum {
+                cursor: not-allowed;
+                color: #ccc;
+
+                i {
+                    animation: none;
+                    transition: none;
+                }
+            }
+
             a {
                 display: flex;
                 font-size: 24px;

@@ -357,6 +357,21 @@
                     display: none;
                 }
 
+                &::after {
+                    content: '';
+                    display: block;
+                    background-image: url(/img/home/medal-solid.svg);
+                    background-repeat: no-repeat;
+                    width: 30px;
+                    height: 30px;
+                    background-size: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    opacity: .5;
+                    animation: rotate 3s linear infinite;
+                }
+
                 .plaeName {
                     display: flex;
                     flex-direction: column;
@@ -582,7 +597,7 @@
         display: flex;
 
         .leftbar {
-            flex: 1;
+            width: 30%;
             display: flex;
             justify-content: center;
             align-items: end;
@@ -599,53 +614,59 @@
         }
 
         .rightbar {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
 
-            .pic {
-                img {
-                    vertical-align: top;
+            .detailLocation {
+                .pic {
                     width: 100%;
-                }
-            }
 
-            .text {
-                span {
-                    display: block;
-                    text-align: center;
-                    margin: 20px 0;
-                    color: #fff;
-                    font-weight: 700;
+                    img {
+                        vertical-align: top;
+                        width: 100%;
+                    }
                 }
 
-                h3 {
-                    font-size: 20px;
-                    text-align: center;
-                    margin-bottom: 20px;
-                    color: #fff;
-                }
+                .text {
+                    span {
+                        display: block;
+                        text-align: center;
+                        margin: 20px 0;
+                        color: #fff;
+                        font-weight: 700;
+                    }
 
-                button {
-                    border: none;
-                    background-color: #00bcd6;
-                    border-radius: 10px;
-                    padding: 10px 30px;
-                    font-size: 20px;
-                    font-weight: 700;
-                    transition: 0.3s ease;
-                    cursor: pointer;
-                    color: #fff;
+                    h3 {
+                        font-size: 20px;
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: #fff;
+                    }
 
-                    &:hover {
-                        background-color: #fff;
-                        color: #00bcd6;
-                        transition: 0.5s ease;
+                    .detailBtn {
+                        width: 100%;
+                        text-align: center;
+
+                        button {
+                            border: none;
+                            background-color: #00bcd6;
+                            border-radius: 10px;
+                            padding: 10px 30px;
+                            font-weight: 700;
+                            transition: 0.3s ease;
+                            cursor: pointer;
+                            color: #fff;
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #00bcd6;
+                                transition: 0.5s ease;
+                            }
+                        }
                     }
                 }
             }
+
+
         }
     }
 }
@@ -963,5 +984,15 @@
 
     100% {
         transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(0turn);
+    }
+
+    100% {
+        transform: rotateY(1turn);
     }
 }

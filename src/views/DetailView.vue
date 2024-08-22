@@ -19,11 +19,11 @@
                 </div>
                 <div class="controlPage">
                     <div class="page">
-                        <RouterLink :to="prevPage">
+                        <RouterLink :to="prevPage" :class="{ 'smallest': !prevPage }">
                             <i class="fa-solid fa-angle-left"></i>
                             <span>上一則</span>
                         </RouterLink>
-                        <RouterLink :to="nextPage">
+                        <RouterLink :to="nextPage" :class="{ 'maximum': !nextPage }">
                             <span>下一則</span>
                             <i class="fa-solid fa-angle-right"></i>
                         </RouterLink>
@@ -168,12 +168,12 @@ const detail = computed(() => {
 
 const prevPage = computed(() => {
     const index = currentIndex.value - 1;
-    return index >= 0 ? detailList[index].id : '';
+    return index >= 0 ? detailList[index].id : null;
 });
 
 const nextPage = computed(() => {
     const index = currentIndex.value + 1;
-    return index < detailList.length ? detailList[index].id : '';
+    return index < detailList.length ? detailList[index].id : null;
 });
 </script>
 

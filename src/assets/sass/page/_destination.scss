@@ -389,9 +389,11 @@
                     display: flex;
                     justify-content: end;
 
-                    a {
+                    span {
                         color: #000;
                         transition: .3s ease;
+                        cursor: pointer;
+                        text-decoration: underline;
 
                         &:hover {
                             color: #fff;
