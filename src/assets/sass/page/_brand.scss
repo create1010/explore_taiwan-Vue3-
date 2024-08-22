@@ -213,7 +213,7 @@
                 position: relative;
 
                 &:hover .image {
-                    animation: border-rotate .5s linear infinite
+                    animation: rotate .5s linear infinite
                 }
 
                 .image {
@@ -309,7 +309,7 @@
     }
 }
 
-@keyframes border-rotate {
+@keyframes rotate {
     25% {
         border-top-color: #00BCD6;
     }
