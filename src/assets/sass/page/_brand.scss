@@ -175,8 +175,6 @@
                 line-height: 1.2em;
                 letter-spacing: .1em;
             }
-
-            .content {}
         }
     }
 }
@@ -213,7 +211,7 @@
                 position: relative;
 
                 &:hover .image {
-                    animation: rotate .5s linear infinite
+                    animation: border-rotate .5s linear infinite
                 }
 
                 .image {
@@ -309,7 +307,7 @@
     }
 }
 
-@keyframes rotate {
+@keyframes border-rotate {
     25% {
         border-top-color: #00BCD6;
     }
