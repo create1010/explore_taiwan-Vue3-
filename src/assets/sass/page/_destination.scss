@@ -37,7 +37,7 @@
                 input {
                     width: 50%;
                     border-radius: 5px;
-                    background-color: transparent;
+                    background-color: rgba(0, 0, 0, .3);
                     border: 1px solid #fff;
                     padding: 10px;
 
@@ -47,9 +47,8 @@
                     }
                 }
 
-                a {
-                    display: inline-block;
-                    text-decoration: none;
+                button {
+                    border: none;
                     border-radius: 5px;
                     color: #fff;
                     background-color: #00BCD6;
@@ -57,6 +56,7 @@
                     padding: 10px 20px;
                     font-weight: 700;
                     transition: .3s ease;
+                    cursor: pointer;
 
                     &:hover {
                         background-color: #fff;
@@ -68,9 +68,7 @@
 
         .history {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
 
             button {
                 background-color: #eee;
@@ -82,9 +80,17 @@
                 cursor: pointer;
                 transition: .3s ease;
                 font-size: 16px;
+                position: relative;
 
                 &:hover {
                     background-color: #ccc;
+                }
+
+                i {
+                    position: absolute;
+                    top: -6px;
+                    right: -6px;
+                    font-size: 20px;
                 }
             }
         }
@@ -174,6 +180,36 @@
                 display: flex;
                 justify-content: end;
                 color: #000;
+            }
+        }
+    }
+
+    .pageControl {
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+
+        i {
+            font-size: 30px;
+            cursor: pointer;
+            transition: .3s ease;
+
+            &:first-child:hover {
+                color: #fff;
+                animation: left-Afterimage .5s linear;
+            }
+
+            &:first-child:active {
+                color: #918d8d;
+            }
+
+            &:last-child:hover {
+                color: #fff;
+                animation: right-Afterimage .5s linear;
+            }
+
+            &:last-child:active {
+                color: #918d8d;
             }
         }
     }
@@ -532,5 +568,39 @@
                 }
             }
         }
+    }
+}
+
+@keyframes left-Afterimage {
+    0% {
+        animation-delay: 0;
+        transform: translateX(0);
+    }
+
+    50% {
+        animation-delay: 2;
+        transform: translateX(-10px);
+    }
+
+    100% {
+        animation-delay: 4;
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes right-Afterimage {
+    0% {
+        animation-delay: 0;
+        transform: translateX(0);
+    }
+
+    50% {
+        animation-delay: 2;
+        transform: translateX(10px);
+    }
+
+    100% {
+        animation-delay: 4;
+        transform: translateX(20px);
     }
 }
