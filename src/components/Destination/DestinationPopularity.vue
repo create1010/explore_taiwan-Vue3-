@@ -24,8 +24,8 @@
                 </div>
             </div>
             <div class="pageControl">
-                <i class="fa-solid fa-left-long" @click="prevPage" :class="{ disable: firstPage }"></i>
-                <i class="fa-solid fa-right-long" @click="nextPage" :class="{ disable: lastPage }"></i>
+                <i class="fa-solid fa-left-long" @click="PreviousPage" :class="{ disable: firstPage }"></i>
+                <i class="fa-solid fa-right-long" @click="NextPage" :class="{ disable: lastPage }"></i>
             </div>
             <div class="more">
                 <RouterLink to="#"><i class="fa-solid fa-angles-right"></i>more</RouterLink>
@@ -41,10 +41,10 @@ import { RouterLink } from 'vue-router';
 
 const cardData = ref([]);
 const limitShow = ref(4);   //限制顯示筆數
-const currentIndex = ref(1)   //當前頁
+const CurrentPage = ref(1)   //當前頁
 
 const limitCardData = computed(() => {
-    const start = (currentIndex.value - 1) * limitShow.value;
+    const start = (CurrentPage.value - 1) * limitShow.value;
     const end = start + limitShow.value;
     return cardData.value.slice(start, end)
 })
@@ -54,19 +54,19 @@ const totalPage = computed(() => {
 });
 //限制禁用功能
 const firstPage = computed(() => {
-    return currentIndex.value === 1;
+    return CurrentPage.value === 1;
 });
 const lastPage = computed(() => {
-    return currentIndex.value === totalPage.value;
+    return CurrentPage.value === totalPage.value;
 });
-const prevPage = () => {
-    if (currentIndex.value > 1) {
-        currentIndex.value--;
+const PreviousPage = () => {
+    if (CurrentPage.value > 1) {
+        CurrentPage.value--;
     }
 };
-const nextPage = () => {
-    if (currentIndex.value < totalPage.value) {
-        currentIndex.value++;
+const NextPage = () => {
+    if (CurrentPage.value < totalPage.value) {
+        CurrentPage.value++;
     }
 };
 
