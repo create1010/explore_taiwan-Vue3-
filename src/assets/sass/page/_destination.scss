@@ -211,6 +211,12 @@
             &:last-child:active {
                 color: #918d8d;
             }
+
+            &.disable {
+                color: #ccc;
+                pointer-events: none;
+                animation: none;
+            }
         }
     }
 

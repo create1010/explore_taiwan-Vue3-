@@ -24,8 +24,8 @@
                 </div>
             </div>
             <div class="pageControl">
-                <i class="fa-solid fa-left-long" @click="PreviousPage" :class="{ disable: firstPage }"></i>
-                <i class="fa-solid fa-right-long" @click="NextPage" :class="{ disable: lastPage }"></i>
+                <i class="fa-solid fa-left-long" @click="prevPage" :class="{ disable: firstPage }"></i>
+                <i class="fa-solid fa-right-long" @click="nextPage" :class="{ disable: lastPage }"></i>
             </div>
             <div class="more">
                 <RouterLink to="#"><i class="fa-solid fa-angles-right"></i>more</RouterLink>
@@ -59,12 +59,12 @@ const firstPage = computed(() => {
 const lastPage = computed(() => {
     return CurrentPage.value === totalPage.value;
 });
-const PreviousPage = () => {
+const prevPage = () => {
     if (CurrentPage.value > 1) {
         CurrentPage.value--;
     }
 };
-const NextPage = () => {
+const nextPage = () => {
     if (CurrentPage.value < totalPage.value) {
         CurrentPage.value++;
     }

@@ -7,7 +7,7 @@
                     <h2>The best trip, the most beautiful memories</h2>
                     <span>All in this moment</span>
                 </div>
-                <div class="content">
+                <div class="content" v-if="detail">
                     <div class="picture">
                         <img :src="detail.img" :alt="detail.alt" />
                     </div>
@@ -19,11 +19,13 @@
                 </div>
                 <div class="controlPage">
                     <div class="page">
-                        <RouterLink :to="prevPage" :class="{ 'smallest': !prevPage }">
+                        <RouterLink :to="{ name: 'Detail', params: { id: prevPage } }"
+                            :class="{ 'smallest': !prevPage }">
                             <i class="fa-solid fa-angle-left"></i>
                             <span>上一則</span>
                         </RouterLink>
-                        <RouterLink :to="nextPage" :class="{ 'maximum': !nextPage }">
+                        <RouterLink :to="{ name: 'Detail', params: { id: nextPage } }"
+                            :class="{ 'maximum': !nextPage }">
                             <span>下一則</span>
                             <i class="fa-solid fa-angle-right"></i>
                         </RouterLink>
@@ -41,139 +43,43 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue';
+import { defineProps, computed, ref, onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
 
 const props = defineProps({ id: String });
+const detailList = ref([])
 
-const detailList = [
-    {
-        id: '1',
-        alt: '淡水',
-        title: '淡水老街',
-        content: '淡水一日遊帶給我無盡的驚喜與愉悅。徜徉於老街巷弄中，濃厚的歷史氣息令人心曠神怡；品嚐當地美食，深刻體驗了淡水文化的獨特魅力。沿著淡水河岸漫步，欣賞著美麗的夕陽，頓時感受到了寧靜和美好。淡水老街，是淡水這座迷人小鎮的靈魂所在，散發著濃郁的人情味與古韻，讓我流連忘返。',
-        tourists: '李先生',
-        date: '2020/10/10',
-    },
-    {
-        id: '2',
-        alt: '清境農場',
-        title: '清境農場',
-        content: '南投清境農場帶給我一場悠閒愜意的度假體驗。清新的空氣、青翠的草原和親切的動物們讓我忘卻了城市的喧囂，重新與大自然連結。在這裡，我不僅能夠享受寧靜的時光，還可以品嚐到道地的農場美食，感受到南投的純樸鄉村風情。這趟旅程讓我充滿了愉悅和滿足，值得再度造訪。',
-        tourists: '吳先生',
-        date: '2020/12/1',
-    },
-    {
-        id: '3',
-        alt: '日月潭',
-        title: '日月潭',
-        content: '日月潭的湖光山色讓我心曠神怡。在湖邊漫步，眺望碧波蕩漾的湖面和遠山疊翠，彷彿置身於仙境般的美景中。租船湖上划船，感受湖水的清涼和風的撫慰，令人心曠神怡。品嚐當地美食，體驗異國風情，彷彿一場心靈的洗禮，讓我對這片湖光山色充滿了無盡的感激與留戀。',
-        tourists: '林先生',
-        date: '2021/1/3',
-    },
-    {
-        id: '4',
-        alt: '阿里山',
-        title: '阿里山',
-        content: '阿里山的靜謐山林深深吸引著我。站在觀景台眺望日出，雲霧繚繞，太陽漸漸升起，景色壯麗動人，令人心馳神往。漫步於茂密的森林中，聽著鳥鳴蟲鳴，清新的空氣充滿了山林的氣息。品嚐當地的茶品，感受茶香的醇厚，彷彿置身於世外桃源。阿里山的美景與神秘感讓我流連忘返，這趟旅程成為了我心中難以磨滅的回憶。',
-        tourists: '陳先生',
-        date: '2021/2/13',
-    },
-    {
-        id: '5',
-        alt: '太魯閣國家公園',
-        title: '太魯閣',
-        content: '太魯閣國家公園的壯麗景色令我讚嘆不已。走在峽谷中，巍峨的岩壁、澎湃的溪水、翠綠的樹林，處處彰顯大自然的威嚴與美麗。攀登高峰，俯瞰雄偉景致，心靈仿佛得到了淨化。而當地原住民的文化也深深吸引著我，他們的故事、歌舞，為這片大自然增添了更多色彩。太魯閣國家公園是一處充滿奇幻與魅力的寶地，讓我深深著迷。',
-        tourists: '宋小姐',
-        date: '2021/4/1',
-    },
-    {
-        id: '6',
-        alt: '綠島',
-        title: '綠島',
-        content: '綠島的自然美景與海洋風情深深吸引了我。漫步在綿延的海岸線上，清澈的海水、白色的沙灘和巍峨的岩壁讓我目不轉睛。潛入海底，探索多彩的珊瑚礁和繽紛的海洋生物，彷彿置身於另一個世界。而綠島的人文歷史也令人動容，原住民的文化傳承和島上的古蹟，為這片寶島增添了更多魅力。綠島的美麗和神秘讓我留下了難忘的回憶。',
-        tourists: '賴小姐',
-        date: '2021/6/6',
-    },
-    {
-        id: '7',
-        alt: '九份老街',
-        title: '九份老街',
-        content: '九份的巷弄中彷彿藏著無數的故事，每個轉角都充滿著驚喜。沿著石板路慢行，彷彿能聽見昔日金礦的回音。各式美味小吃更是讓人垂涎欲滴，尤其是阿婆芋圓，讓人一吃難忘。九份老街的每一處景致，都讓我感受到了這座山城的古樸與浪漫。',
-        tourists: '張小姐',
-        date: '2021/1/15',
-    },
-    {
-        id: '8',
-        alt: '高美濕地',
-        title: '高美濕地',
-        content: '高美濕地的夕陽美景無與倫比，那片金黃的光芒映照在水面上，讓人如癡如醉。走在木棧道上，四周是廣闊的濕地風光，彷彿走入了一幅美麗的畫卷。這裡是感受大自然寧靜與力量的最佳場所，也是讓人心靈得到釋放的絕佳去處。',
-        tourists: '陳先生',
-        date: '2020/11/20',
-    },
-    {
-        id: '9',
-        alt: '墾丁國家公園',
-        title: '墾丁國家公園',
-        content: '墾丁國家公園的海灘和藍天令人心曠神怡。這裡的陽光、沙灘和海浪完美結合，讓人徹底放鬆，忘卻一切煩憂。白沙灣的細沙和清澈海水讓我流連忘返，而南灣的熱情氛圍更是讓人感受到台灣南部的活力。墾丁的每一處景色都讓人驚艷，是一個充滿魅力的度假天堂。',
-        tourists: '蔡小姐',
-        date: '2021/7/25',
-    },
-    {
-        id: '10',
-        alt: '澎湖雙心石滬',
-        title: '澎湖雙心石滬',
-        content: '澎湖的雙心石滬讓我感受到了一種獨特的浪漫與寧靜。這座自然與人文結合的奇景，彷彿訴說著古老的漁村故事。站在石滬旁，看著兩顆心型相連，感受到澎湖人民的智慧與對大自然的尊敬。夕陽西下時，石滬周圍的海面閃爍著金色光芒，讓這段旅程增添了更多難忘的回憶。',
-        tourists: '吳小姐',
-        date: '2021/3/10',
-    },
-    {
-        id: '11',
-        alt: '台南安平古堡',
-        title: '台南安平古堡',
-        content: '安平古堡的紅磚牆和碉堡，訴說著台灣的歷史過往。漫步於古堡之間，仿佛時光倒流，回到了那個曾經風起雲湧的年代。這裡是了解台灣歷史的絕佳去處，也是讓人沉思的文化景點。安平古堡的每一磚每一瓦，都見證了台灣的歷史變遷。',
-        tourists: '王小姐',
-        date: '2021/5/2',
-    },
-    {
-        id: '12',
-        alt: '宜蘭龜山島',
-        title: '宜蘭龜山島',
-        content: '乘船前往龜山島的過程中，海風輕拂臉龐，讓人倍感舒適。登上龜山島後，那壯觀的景色讓人震撼，尤其是從山頂俯瞰的全景，令人難以忘懷。這是一趟與自然親密接觸的旅程，讓人感受到台灣大自然的偉大與美麗。',
-        tourists: '李小姐',
-        date: '2021/4/18',
-    },
-]
-//當前頁面
-const currentIndex = computed(() => {
-    return detailList.findIndex(e => e.id === props.id);
-});
+onMounted(async () => {
+    try {
+        const response = await fetch('/JSON/Detail/DetailShare.json');
+        const data = await response.json();
+        detailList.value = data
 
 
+    } catch (error) {
+        console.log('錯誤', error);
 
-//使用computed從接收id與detailList陣列中id做比對，使用find函式尋找，接著判斷如果比對到相同值
-//圖片使用動態方式依id值生成相對應的資訊
+    }
+})
 
 const detail = computed(() => {
-    const filterDetail = detailList.find(e => e.id === props.id);
-    if (filterDetail) {
-        return {
-            ...filterDetail,    //複製屬性，保留原陣列資訊
-            img: `/img/remember/${filterDetail.id}.png`
-        };
-    }
-    return null;
+    return detailList.value.find(e => e.id === props.id)
+})
+
+//當前頁面
+const currentIndex = computed(() => {
+    return detailList.value.findIndex(e => e.id === props.id);
 });
 
 const prevPage = computed(() => {
     const index = currentIndex.value - 1;
-    return index >= 0 ? detailList[index].id : null;
+    return index >= 0 ? detailList.value[index].id : null;
 });
 
 const nextPage = computed(() => {
     const index = currentIndex.value + 1;
-    return index < detailList.length ? detailList[index].id : null;
+    return index < detailList.value.length ? detailList.value[index].id : null;
 });
 </script>
 
