@@ -38,7 +38,7 @@ const cardList = reactive([]);
 //data
 const fetchData = async () => {
     try {
-        const response = await fetch('/public/JSON/Remember/Remember.json');
+        const response = await fetch('/JSON/Remember/Remember.json');
         const data = await response.json();
         cardList.push(...data);
         console.log(cardList);
