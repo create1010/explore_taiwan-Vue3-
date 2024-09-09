@@ -117,10 +117,22 @@
                             padding: 5px;
                             width: 100%;
                             text-align: center;
+                            border-radius: 5px;
                         }
 
                         i {
                             cursor: pointer;
+
+                            &:hover {
+
+                                transform: rotate(1turn);
+                                transition: 1s ease;
+                            }
+
+                            &:active {
+                                color: #fff;
+                                transition: .3s ease;
+                            }
                         }
                     }
 

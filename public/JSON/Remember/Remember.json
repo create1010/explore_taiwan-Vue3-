@@ -1,0 +1,74 @@
+[
+    {
+        "id": "1",
+        "img": "/img/remember/1.png",
+        "alt": "淡水",
+        "content": "淡水風情：造訪台灣文化之美的絕佳去處"
+    },
+    {
+        "id": "2",
+        "img": "/img/remember/2.png",
+        "alt": "清境農場",
+        "content": "清境魅力：在高山農場尋找身心靈的寧靜與和諧"
+    },
+    {
+        "id": "3",
+        "img": "/img/remember/3.png",
+        "alt": "日月潭",
+        "content": "湖光山色：台灣心湖日月潭的美麗風光"
+    },
+    {
+        "id": "4",
+        "img": "/img/remember/4.png",
+        "alt": "阿里山",
+        "content": "雲霧繚繞：隱身雲霧之間阿里山的神秘之美"
+    },
+    {
+        "id": "5",
+        "img": "/img/remember/5.png",
+        "alt": "太魯閣",
+        "content": "峽谷奇觀：探索自然寶庫的壯麗景色"
+    },
+    {
+        "id": "6",
+        "img": "/img/remember/6.png",
+        "alt": "綠島",
+        "content": "絕世美景：大自然的饋贈與島民的熱情"
+    },
+    {
+        "id": "7",
+        "img": "/img/remember/7.png",
+        "alt": "九份老街",
+        "content": "九份奇幻：尋找昔日金礦小鎮的迷人魅力"
+    },
+    {
+        "id": "8",
+        "img": "/img/remember/8.png",
+        "alt": "高美濕地",
+        "content": "高美夕照：自然與人文交織的美麗畫卷"
+    },
+    {
+        "id": "9",
+        "img": "/img/remember/9.png",
+        "alt": "墾丁國家公園",
+        "content": "墾丁風情：享受南台灣的陽光與海洋之美"
+    },
+    {
+        "id": "10",
+        "img": "/img/remember/10.png",
+        "alt": "澎湖雙心石滬",
+        "content": "雙心石滬：澎湖的愛情象徵與自然奇景"
+    },
+    {
+        "id": "11",
+        "img": "/img/remember/11.png",
+        "alt": "台南安平古堡",
+        "content": "安平古堡：見證台灣歷史的時光印記"
+    },
+    {
+        "id": "12",
+        "img": "/img/remember/12.png",
+        "alt": "宜蘭龜山島",
+        "content": "龜山島：探訪自然奇觀與壯麗景色的絕佳去處"
+    }
+]

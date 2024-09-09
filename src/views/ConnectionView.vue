@@ -18,11 +18,11 @@
                         <div class="form-group">
                             <label>類別</label>
                             <div class="checkbox-group">
-                                <input type="radio" id="estimate" name="travel" v-model="form.journey">
+                                <input type="radio" id="estimate" name="travel" value="estimate" v-model="form.journey">
                                 <label for="estimate">行程估價</label>
-                                <input type="radio" id="plan" name="travel" v-model="form.journey">
+                                <input type="radio" id="plan" name="travel" value="plan" v-model="form.journey">
                                 <label for="plan">行程規劃</label>
-                                <input type="radio" id="other" name="travel" v-model="form.journey">
+                                <input type="radio" id="other" name="travel" value="other" v-model="form.journey">
                                 <label for="other">其他</label>
                             </div>
                         </div>
@@ -38,9 +38,9 @@
                         <div class="form-group">
                             <label>性別</label>
                             <div class="radio-group">
-                                <input type="radio" id="male" name="male" v-model="form.gender">
+                                <input type="radio" id="male" name="male" value="male" v-model="form.gender">
                                 <label for="male">男生</label>
-                                <input type="radio" id="female" name="male" v-model="form.gender">
+                                <input type="radio" id="female" name="male" value="female" v-model="form.gender">
                                 <label for="female">女生</label>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ const form = ref({
     email: '',
     comments: '',
     captcha: '',
-    newsletter: true
+    newsletter: false
 })
 
 //生成隨機驗證碼
