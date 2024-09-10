@@ -76,6 +76,7 @@ onBeforeUnmount(() => {
 
     .controlFlex {
         display: flex;
+        height: calc(100vh - 66.47px - 232px);
     }
 
     .nomember {

@@ -14,7 +14,7 @@ import { onMounted } from 'vue';
 import { Loader } from '@googlemaps/js-api-loader';
 
 const loader = new Loader({
-    apiKey: 'AIzaSyDb6zgQbp1-OlN3mJqbax1ovg8_NiS6iKs',
+    apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     version: 'weekly',
     libraries: ['places'], // 使用 Places library 實現搜尋功能
 });
