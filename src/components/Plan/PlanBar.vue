@@ -32,19 +32,31 @@
                 <div class="title">
                     <div class="date">
                         <h3>第{{ index + 1 }}天</h3>
-                        <span>出發時間08:00</span>
                     </div>
                     <span class="week">{{ formatDate(date) }}</span>
                 </div>
-                <div class="journeyEvent"></div>
-                <button class="add"><i class="fa-solid fa-plus"></i>新增景點</button>
+                <div class="journeyItem" v-if="currentIndex === index">
+                    <input type="time" v-model="userTime">
+                    <input type="text" v-model="userEvent">
+                    <div class="choose">
+                        <button class="new" @click="join(index)">新增</button>
+                        <button class="cancel" @click="cancel">取消</button>
+                    </div>
+                </div>
+                <div class="editText" v-for="item in journeyList[index]" :key="item.id">
+                    <span>{{ item.time }}</span>
+                    <span>{{ item.event }}</span>
+                    <button @click="editing(item)">編輯</button>
+                </div>
+                <button class="add" v-if="currentIndex !== index" @click="showEdit(index)"><i
+                        class="fa-solid fa-plus"></i>新增行程</button>
             </div>
         </div>
     </section>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { format, differenceInDays, addDays } from 'date-fns';
 
 
@@ -52,7 +64,11 @@ import { format, differenceInDays, addDays } from 'date-fns';
 const defaultDate = ref(new Date().toISOString().split('T')[0]); //開始日
 const endDate = ref(new Date().toISOString().split('T')[0]);    //結束日
 const maxDays = 3; // 設置最大日期範圍為4天
-
+const currentIndex = ref(null);
+const userTime = ref('');
+const userEvent = ref('');
+const journeyList = ref([]);
+const selectItem = ref(null);   //選擇行程
 
 //天數差
 const daysDifference = computed(() => {
@@ -73,8 +89,58 @@ const dateRange = computed(() => {
     }
     return dates;
 });
+//建立每日行程
+const evertDayJourney = () => {
+    const newJourney = [];
+    dateRange.value.forEach(() => {
+        newJourney.push([])
+    })
+    journeyList.value = newJourney;
+}
+//監聽變化初始化journeyList內容
+watch(dateRange, evertDayJourney, { immediate: true });
 
 const formatDate = (date) => {
     return format(date, 'M/d EEEE');
 };
+
+const showEdit = (index) => {
+    currentIndex.value = index;
+    selectItem.value = null;
+
+}
+
+//新增
+const join = (index) => {
+    if (selectItem.value) {
+        const itemIndex = journeyList.value[index].findIndex(item => item.id === selectItem.value.id);
+        if (itemIndex !== -1) {
+            journeyList.value[index][itemIndex] = { ...selectItem.value, time: userTime.value, event: userEvent.value }
+        }
+        selectItem.value = null;
+    } else {
+        journeyList.value[index].push({ id: Date.now(), time: userTime.value, event: userEvent.value });
+    }
+    //時間排序
+    journeyList.value[index].sort((a, b) => a.time.localeCompare(b.time));
+    userTime.value = '';
+    userEvent.value = '';
+    currentIndex.value = null;
+}
+
+//修改
+const editing = (item) => {
+    selectItem.value = item;
+    userTime.value = item.time;
+    userEvent.value = item.event;
+    currentIndex.value = journeyList.value.findIndex(day => day.includes(item));
+}
+
+//取消
+const cancel = () => {
+    userTime.value = '';
+    userEvent.value = '';
+    currentIndex.value = null;
+}
+
 </script>

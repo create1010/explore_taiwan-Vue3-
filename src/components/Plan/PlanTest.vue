@@ -34,7 +34,9 @@ onMounted(() => {
                 zoom: 8,
                 mapTypeControl: false,
                 fullscreenControl: false,
-                zoomControl: false
+                zoomControl: false,
+                draggableCursor: 'pointer', // 鼠標懸停時的樣式
+                draggingCursor: 'move' // 拖曳時的樣式
             });
 
             // 初始化 Places Autocomplete
@@ -80,6 +82,9 @@ onMounted(() => {
                                 <p>類型: ${details.types.join(', ')}</p>
                                 <p>評分: ${details.rating}</p>
                                 <p>營業時間: ${details.opening_hours ? details.opening_hours.weekday_text.join('<br>') : ''}</p>
+                                <div class="buttons">
+                                    <button class="addJourney">加入行程</button>
+                                </div>
                             `;
                             placeDetails.style.display = 'block';
                         } else {
@@ -92,6 +97,19 @@ onMounted(() => {
                     placeDetails.style.display = 'none';
                 }
             });
+            document.getElementById('searchInput').addEventListener('input', (event) => {
+                if (event.target.value === '') {
+                    const placeDetails = document.getElementById('placeDetails');
+                    placeDetails.innerHTML = '';
+                    placeDetails.style.display = 'none';
+                    // 清除地圖上的標記
+                    markers.forEach(marker => marker.setMap(null));
+                    markers = [];
+
+                    // 重置地圖中心
+                    map.setCenter({ lat: 25.033, lng: 121.5654 });
+                }
+            })
         } else {
             console.error('Google Maps API is not available on the window object');
         }
@@ -157,7 +175,27 @@ onMounted(() => {
         max-width: 600px;
         z-index: 10;
         display: none;
-        /* 默认隐藏 */
+
+        :deep(.buttons) {
+            display: flex;
+            justify-content: end;
+
+            .addJourney {
+                border: none;
+                background-color: #0593D7;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 5px;
+                transition: .3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    color: #0593D7;
+                    background-color: #fff;
+                    box-shadow: 1px 1px 1px #ccc;
+                }
+            }
+        }
     }
 }
 </style>
