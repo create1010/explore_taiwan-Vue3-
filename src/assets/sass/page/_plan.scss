@@ -2,6 +2,7 @@
 .section-plan {
     padding: 0;
     width: 100%;
+    overflow-y: scroll;
 
     .header {
         background-color: #0593D7;
@@ -246,19 +247,26 @@
                     color: #f00;
                 }
 
-                button {
-                    border: none;
-                    background-color: #0593D7;
-                    color: #fff;
-                    transition: .3s ease;
-                    border-radius: 5px;
-                    padding: 5px 10px;
-                    margin-right: 5px;
-                    cursor: pointer;
+                .choose {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    gap: 10px;
 
-                    &:hover {
-                        color: #0593D7;
-                        background-color: #fff;
+                    button {
+                        border: none;
+                        background-color: #0593D7;
+                        color: #fff;
+                        transition: .3s ease;
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                        margin-right: 5px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #0593D7;
+                            background-color: #fff;
+                        }
                     }
                 }
             }

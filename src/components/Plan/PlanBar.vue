@@ -39,14 +39,17 @@
                     <input type="time" v-model="userTime">
                     <input type="text" v-model="userEvent">
                     <div class="choose">
-                        <button class="new" @click="join(index)">新增</button>
+                        <button class="new" @click="join(index)">{{ selectItem ? '修改' : '新增' }}</button>
                         <button class="cancel" @click="cancel">取消</button>
                     </div>
                 </div>
                 <div class="editText" v-for="item in journeyList[index]" :key="item.id">
                     <span>{{ item.time }}</span>
                     <span>{{ item.event }}</span>
-                    <button @click="editing(item)">編輯</button>
+                    <div class="choose">
+                        <button @click="editing(item)">編輯</button>
+                        <button @click="deleted(index, item.id)">刪除</button>
+                    </div>
                 </div>
                 <button class="add" v-if="currentIndex !== index" @click="showEdit(index)"><i
                         class="fa-solid fa-plus"></i>新增行程</button>
@@ -56,8 +59,11 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, toRef } from 'vue';
 import { format, differenceInDays, addDays } from 'date-fns';
+import { useClickMapStore } from '../../stores/clickMap';
+import Swal from 'sweetalert2';
+
 
 
 //轉標準時間格式，使用splite切割T以後(含T本身)皆不需要
@@ -69,6 +75,8 @@ const userTime = ref('');
 const userEvent = ref('');
 const journeyList = ref([]);
 const selectItem = ref(null);   //選擇行程
+const mapStore = useClickMapStore();
+const selectLocation = toRef(mapStore, 'selectLocation');
 
 //天數差
 const daysDifference = computed(() => {
@@ -80,7 +88,7 @@ const dateRange = computed(() => {
 
     //檢查是否超出四天(不含四本身)
     if (daysDifference.value > maxDays) {
-        return '';
+        return [];
     }
 
     let dates = [];
@@ -103,23 +111,43 @@ watch(dateRange, evertDayJourney, { immediate: true });
 const formatDate = (date) => {
     return format(date, 'M/d EEEE');
 };
-
+//
+watch(selectLocation, (newLocation) => {
+    userEvent.value = newLocation
+})
+watch(userEvent, (newEvent) => {
+    selectLocation.value = newEvent;
+})
+//顯示輸入框
 const showEdit = (index) => {
     currentIndex.value = index;
     selectItem.value = null;
+    userTime.value = '';
+    userEvent.value = selectLocation.value || '';
+    console.log(selectLocation);
 
 }
 
 //新增
 const join = (index) => {
-    if (selectItem.value) {
-        const itemIndex = journeyList.value[index].findIndex(item => item.id === selectItem.value.id);
-        if (itemIndex !== -1) {
-            journeyList.value[index][itemIndex] = { ...selectItem.value, time: userTime.value, event: userEvent.value }
+    if (userTime.value && userEvent.value.trim()) {
+        if (selectItem.value) {
+            const itemIndex = journeyList.value[index].findIndex(item => item.id === selectItem.value.id);
+            if (itemIndex !== -1) {
+                journeyList.value[index][itemIndex] = { ...selectItem.value, time: userTime.value, event: userEvent.value }
+            }
+            selectItem.value = null;
+        } else {
+            const event = selectLocation.value || userEvent.value;
+            journeyList.value[index].push({ id: Date.now(), time: userTime.value, event });
         }
-        selectItem.value = null;
     } else {
-        journeyList.value[index].push({ id: Date.now(), time: userTime.value, event: userEvent.value });
+        Swal.fire({
+            title: '請填寫完整行程資訊!',
+            text: '請確實填寫時間及行程資訊',
+            icon: 'warning',
+            confirmButtonText: '確認'
+        })
     }
     //時間排序
     journeyList.value[index].sort((a, b) => a.time.localeCompare(b.time));
@@ -141,6 +169,28 @@ const cancel = () => {
     userTime.value = '';
     userEvent.value = '';
     currentIndex.value = null;
+}
+
+//刪除
+const deleted = (index, id) => {
+    Swal.fire({
+        title: '確定要刪除這個行程嗎?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '刪除',
+        cancelButtonText: '取消'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            journeyList.value[index] = journeyList.value[index].filter(item => item.id !== id);
+            Swal.fire({
+                icon: 'success',
+                text: '已刪除!'
+            })
+        }
+    }).catch((error) => {
+        console.log('錯誤', error);
+
+    })
 }
 
 </script>

@@ -5,24 +5,31 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <div id="map"></div>
-        <div id="placeDetails" class="placeDetails"></div>
+        <div id="placeDetails" class="placeDetails" ref="clickAdd"></div>
     </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Loader } from '@googlemaps/js-api-loader';
+import { useClickMapStore } from '../../stores/clickMap';
 
 const loader = new Loader({
     apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
     version: 'weekly',
     libraries: ['places'], // 使用 Places library 實現搜尋功能
 });
-
+const mapStore = useClickMapStore();
+const clickAdd = ref(null);
 let map;
 let autocomplete;
 let placeDetailsService;
 let markers = [];
+
+const addJourney = (details) => {
+    mapStore.selectLocation = details;
+
+}
 
 onMounted(() => {
     loader.load().then(() => {
@@ -83,10 +90,17 @@ onMounted(() => {
                                 <p>評分: ${details.rating}</p>
                                 <p>營業時間: ${details.opening_hours ? details.opening_hours.weekday_text.join('<br>') : ''}</p>
                                 <div class="buttons">
-                                    <button class="addJourney">加入行程</button>
+                                    <button class="addJourney" data-name="${details.name}">加入行程</button>
                                 </div>
                             `;
                             placeDetails.style.display = 'block';
+
+                            placeDetails.addEventListener('click', (event) => {
+                                if (event.target && event.target.classList.contains('addJourney')) {
+                                    const name = event.target.getAttribute('data-name');
+                                    addJourney(name);
+                                }
+                            })
                         } else {
                             console.error('Failed to get place details:', status);
                             placeDetails.style.display = 'none';
