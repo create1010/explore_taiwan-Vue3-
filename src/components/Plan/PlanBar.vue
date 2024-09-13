@@ -75,6 +75,7 @@ const userTime = ref('');
 const userEvent = ref('');
 const journeyList = ref([]);
 const selectItem = ref(null);   //選擇行程
+
 const mapStore = useClickMapStore();
 const selectLocation = toRef(mapStore, 'selectLocation');
 
@@ -85,7 +86,6 @@ const daysDifference = computed(() => {
 // 生成日期范围内的所有日期
 const dateRange = computed(() => {
     const start = new Date(defaultDate.value);
-
     //檢查是否超出四天(不含四本身)
     if (daysDifference.value > maxDays) {
         return [];
@@ -111,10 +111,11 @@ watch(dateRange, evertDayJourney, { immediate: true });
 const formatDate = (date) => {
     return format(date, 'M/d EEEE');
 };
-//
+//監聽加入行程景點資訊
 watch(selectLocation, (newLocation) => {
     userEvent.value = newLocation
 })
+//監聽行程事件輸入框
 watch(userEvent, (newEvent) => {
     selectLocation.value = newEvent;
 })
@@ -141,19 +142,24 @@ const join = (index) => {
             const event = selectLocation.value || userEvent.value;
             journeyList.value[index].push({ id: Date.now(), time: userTime.value, event });
         }
+        userTime.value = '';
+        userEvent.value = '';
+        currentIndex.value = null;
     } else {
         Swal.fire({
             title: '請填寫完整行程資訊!',
             text: '請確實填寫時間及行程資訊',
             icon: 'warning',
             confirmButtonText: '確認'
+        }).then(() => {
+            userTime.value = '';
+            userEvent.value = '';
         })
     }
-    //時間排序
-    journeyList.value[index].sort((a, b) => a.time.localeCompare(b.time));
-    userTime.value = '';
-    userEvent.value = '';
-    currentIndex.value = null;
+    //完成在排序
+    if (index !== null && journeyList.value[index]) {
+        journeyList.value[index].sort((a, b) => a.time.localeCompare(b.time));
+    }
 }
 
 //修改

@@ -28,7 +28,6 @@ let markers = [];
 
 const addJourney = (details) => {
     mapStore.selectLocation = details;
-
 }
 
 onMounted(() => {
