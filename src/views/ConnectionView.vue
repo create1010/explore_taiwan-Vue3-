@@ -169,7 +169,7 @@ const sendForm = () => {
     //找尋error物件中是否有錯誤欄位
     const hasErrors = Object.values(errors.value).includes(true);
     const inputRadio = form.value.journey !== '' && form.value.gender !== '';
-    const inputNull = Object.keys(errors.value).some(item => form.value[item].trim() === '');
+    const inputNull = Object.keys(errors.value).slice(0, 4).some(item => form.value[item].trim() === '');
     if (!inputRadio || inputNull) {
         Swal.fire({
             text: '請完整填寫欄位',
@@ -185,16 +185,16 @@ const sendForm = () => {
         if (errors.value.location) {
             errorList += '請輸入旅遊景點'
         }
-        if (errors.value.name) {
+        else if (errors.value.name) {
             errorList += '請輸入姓名'
         }
-        if (errors.value.tel) {
+        else if (errors.value.tel) {
             errorList += '請輸入正確電話號碼格式'
         }
-        if (errors.value.email) {
+        else if (errors.value.email) {
             errorList += '請輸入正確電子郵件格式'
         }
-        if (errors.value.captcha) {
+        else if (errors.value.captcha) {
             errorList += '驗證碼錯誤'
         }
 
