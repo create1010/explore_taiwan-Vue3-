@@ -1,8 +1,13 @@
 <template>
     <section class="section section-plan">
         <div class="header">
-            <h2>行稱名稱：心靈之旅</h2>
-            <button><i class="fa-solid fa-pen"></i>編輯</button>
+            <div v-if="isEditing">
+                行稱名稱：<input type="text" v-model="tripName">
+            </div>
+            <div v-else>
+                <h2>行稱名稱：{{ tripName }}</h2>
+            </div>
+            <button @click="editName"><i class="fa-solid fa-pen"></i>{{ isEditing ? '保存' : '編輯' }}</button>
         </div>
         <div class="dataInfo">
             <span>旅遊日期</span>
@@ -75,6 +80,8 @@ const userTime = ref('');
 const userEvent = ref('');
 const journeyList = ref([]);
 const selectItem = ref(null);   //選擇行程
+const isEditing = ref(false);
+const tripName = ref('您的行程');
 
 const mapStore = useClickMapStore();
 const selectLocation = toRef(mapStore, 'selectLocation');
@@ -105,30 +112,10 @@ const evertDayJourney = () => {
     })
     journeyList.value = newJourney;
 }
-//監聽變化初始化journeyList內容
-watch(dateRange, evertDayJourney, { immediate: true });
 
 const formatDate = (date) => {
     return format(date, 'M/d EEEE');
 };
-//監聽加入行程景點資訊
-watch(selectLocation, (newLocation) => {
-    userEvent.value = newLocation
-})
-//監聽行程事件輸入框
-watch(userEvent, (newEvent) => {
-    selectLocation.value = newEvent;
-})
-//顯示輸入框
-const showEdit = (index) => {
-    currentIndex.value = index;
-    selectItem.value = null;
-    userTime.value = '';
-    userEvent.value = selectLocation.value || '';
-    console.log(selectLocation);
-
-}
-
 //新增
 const join = (index) => {
     if (userTime.value && userEvent.value.trim()) {
@@ -169,6 +156,14 @@ const editing = (item) => {
     userEvent.value = item.event;
     currentIndex.value = journeyList.value.findIndex(day => day.includes(item));
 }
+//修改主題名稱
+const editName = () => {
+    if (isEditing.value) {
+        isEditing.value = false
+    } else {
+        isEditing.value = true
+    }
+}
 
 //取消
 const cancel = () => {
@@ -199,4 +194,27 @@ const deleted = (index, id) => {
     })
 }
 
+//監聽有新值則變化
+watch(selectLocation, (newLocation) => {
+    if (newLocation) {
+        if (currentIndex.value === null) {
+            currentIndex.value = 0;
+        }
+        userEvent.value = newLocation;
+    }
+})
+//監聽行程事件輸入框
+watch(userEvent, (newEvent) => {
+    selectLocation.value = newEvent;
+})
+//顯示輸入框
+const showEdit = (index) => {
+    currentIndex.value = index;
+    selectItem.value = null;
+    userTime.value = '';
+    userEvent.value = selectLocation.value || '';
+
+}
+//監聽變化初始化journeyList內容
+watch(dateRange, evertDayJourney, { immediate: true });
 </script>

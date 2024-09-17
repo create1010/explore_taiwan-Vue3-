@@ -18,7 +18,8 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                         <ul class="logBar" v-if="showResult">
-                            <li v-for="item in filterSearch" :key="item.id">{{ item.name }}</li>
+                            <li v-for="item in showDeafultSearch" :key="item.id">{{ item.name }}
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -67,6 +68,17 @@ const showResult = ref(false)
 const filterSearch = computed(() => {
     const filterValue = searchInput.value.toLowerCase();
     return keypointList.value.filter(item => item.name.toLowerCase().includes(filterValue))
+})
+
+const showDeafultSearch = computed(() => {
+    //有搜尋紀錄，則顯示收尋紀錄名稱
+    if (filterSearch.value.length > 0) {
+        return filterSearch.value;
+        //無搜尋紀錄則顯示user輸入文字
+    } else if (searchInput.value) {
+        return [{ id: 'default', name: searchInput.value }]
+    }
+    return [];
 })
 
 //判斷輸入框是否有值來控制模糊搜尋的開關
