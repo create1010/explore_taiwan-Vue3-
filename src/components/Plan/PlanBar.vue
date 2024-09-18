@@ -108,6 +108,7 @@ const dateRange = computed(() => {
 const evertDayJourney = () => {
     const newJourney = [];
     dateRange.value.forEach(() => {
+        //初始化每日行程
         newJourney.push([])
     })
     journeyList.value = newJourney;
@@ -196,10 +197,8 @@ const deleted = (index, id) => {
 
 //監聽有新值則變化
 watch(selectLocation, (newLocation) => {
-    if (newLocation) {
-        if (currentIndex.value === null) {
-            currentIndex.value = 0;
-        }
+    console.log(currentIndex.value);
+    if (newLocation || currentIndex.value !== null) {
         userEvent.value = newLocation;
     }
 })
