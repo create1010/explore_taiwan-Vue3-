@@ -20,7 +20,7 @@
                     <p class="content">
                         {{ card.text }}
                     </p>
-                    <RouterLink>查看完整資訊</RouterLink>
+                    <RouterLink to="#" @click.prevent="openLightBox(card)">查看完整資訊</RouterLink>
                 </div>
             </div>
             <div class="pageControl">
@@ -29,8 +29,9 @@
             </div>
             <div class="more">
                 <RouterLink to="#"><i class="fa-solid fa-angles-right"></i>more</RouterLink>
-
             </div>
+            <DestinationPopularityWhole v-if="showLightBox" :data="selectLightBox" :clickStatus="showLightBox"
+                @close="closeLightBox" />
         </div>
     </section>
 </template>
@@ -38,10 +39,25 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import DestinationPopularityWhole from './DestinationPopularityWhole.vue';
 
 const cardData = ref([]);
 const limitShow = ref(4);   //限制顯示筆數
 const CurrentPage = ref(1)   //當前頁
+/*---light---*/
+const selectLightBox = ref(null);
+const showLightBox = ref(false);
+
+//顯示lightBox
+const openLightBox = (card) => {
+    showLightBox.value = true;
+    selectLightBox.value = card;
+}
+//關閉lightBox
+const closeLightBox = () => {
+    showLightBox.value = false;
+    selectLightBox.value = null;
+}
 
 const limitCardData = computed(() => {
     const start = (CurrentPage.value - 1) * limitShow.value;

@@ -44,8 +44,7 @@
 <script setup>
 import Swal from 'sweetalert2';
 import { reactive, computed, ref } from 'vue'
-import { RouterLink } from 'vue-router';
-import { useRoute } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router';
 
 //數據
 const route = useRoute()
@@ -54,7 +53,7 @@ const emailData = ref([]);
 const user = ref('')
 
 const footerToggle = computed(() => {
-    const hiddenFooter = ['Detail'];
+    const hiddenFooter = ['Detail', 'PopularityWhole'];
     return !hiddenFooter.includes(route.name)
 })
 //判斷輸入郵件是否重複

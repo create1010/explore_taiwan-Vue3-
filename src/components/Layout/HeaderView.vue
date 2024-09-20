@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header :class="{ 'transparent': scrollStore.isTransparent }" ref="navScroll">
+        <header v-if="headerToggle" :class="{ 'transparent': scrollStore.isTransparent }" ref="navScroll">
             <div class="container">
                 <nav class="navigation">
                     <RouterLink to="/" class="logoIndex">
@@ -43,15 +43,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import { RouterLink } from 'vue-router'
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { RouterLink, useRoute } from 'vue-router'
 import { useScrollStore } from '../../stores/homeScroll'
+import { useMemberStore } from '@/stores/userLogin';
 
 const navScroll = ref(null);
 const scrollStore = useScrollStore();
-import { useMemberStore } from '@/stores/userLogin';
 
 const useStore = useMemberStore();
+const route = useRoute();
 const handleScroll = () => {
     // 判斷捲動位置是否超過 900px
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -66,6 +67,11 @@ const handleScroll = () => {
 const singOut = () => {
     useStore.loginOut()
 }
+
+const headerToggle = computed(() => {
+    const hiddenHeader = ['PopularityWhole'];
+    return !hiddenHeader.includes(route.name);
+})
 
 onMounted(() => {
     window.addEventListener('scroll', handleScroll);
