@@ -41,6 +41,10 @@
                     border: 1px solid #fff;
                     padding: 10px;
 
+                    &::placeholder {
+                        color: #fff;
+                    }
+
                     &:focus {
                         outline: none;
                         color: #fff;
@@ -174,9 +178,14 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                margin-bottom: 10px;
             }
 
-            a {
+            button {
+                border: none;
+                background-color: transparent;
+                text-decoration: underline;
+                cursor: pointer;
                 display: flex;
                 justify-content: end;
                 color: #000;

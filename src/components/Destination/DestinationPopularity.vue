@@ -20,7 +20,7 @@
                     <p class="content">
                         {{ card.text }}
                     </p>
-                    <RouterLink to="#" @click.prevent="openLightBox(card)">查看完整資訊</RouterLink>
+                    <button @click.prevent="openLightBox(card)">查看完整資訊</button>
                 </div>
             </div>
             <div class="pageControl">

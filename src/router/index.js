@@ -56,14 +56,7 @@ const router = createRouter({
       name: 'Login',
       component: ()=>import('../views/LoginView.vue'),
       meta:{title:"會員登入"}
-    },
-    // {
-    //   path: '/PopularityWhole',
-    //   name: 'PopularityWhole',
-    //   component: ()=>import('../components/Destination/DestinationPopularity-whole.vue'),
-    //   meta:{title:"人氣景點"}
-    // },
-
+    }
   ]
 })
 
