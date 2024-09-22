@@ -68,6 +68,23 @@
                     }
                 }
             }
+
+            ul {
+                background-color: #ccc;
+                list-style: none;
+                width: 50%;
+                transform: translateX(35%);
+                border-radius: 0 0 5px 5px;
+
+                li {
+                    padding: 8px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #f0f0f0;
+                    }
+                }
+            }
         }
 
         .history {
