@@ -44,7 +44,7 @@ const filteredResults = ref([]);    //用來記錄搜尋相關值的陣列
 
 onMounted(async () => {
     try {
-        const response = await fetch('/public/JSON/Destination/DestinationPopularity.json');
+        const response = await fetch('/JSON/Destination/DestinationPopularity.json');
         const searchList = await response.json();
         data.value = searchList;
 
