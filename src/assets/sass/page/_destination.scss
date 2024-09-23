@@ -80,10 +80,19 @@
                     padding: 8px;
                     cursor: pointer;
 
-                    &:hover {
-                        background-color: #f0f0f0;
+                    .historyWrap {
+                        width: 100%;
+                        transform: translateX(0);
+
+                        .historyValue {
+
+                            &:hover {
+                                background-color: #f0f0f0;
+                            }
+                        }
                     }
                 }
+
             }
         }
 
