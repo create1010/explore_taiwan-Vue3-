@@ -60,16 +60,24 @@ const footerToggle = computed(() => {
 const sendEmail = () => {
     const email = user.value.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log(email);
-    console.log(emailPattern.test(email));
+    // console.log(email);
+    // console.log(emailPattern.test(email));
 
-    if (email === '' || !emailPattern.test(email)) {
+    if (email === '') {
+        Swal.fire({
+            title: '請輸入電子郵件',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+    }
+    else if (!emailPattern.test(email)) {
         Swal.fire({
             title: '請輸入有效電子郵件',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
-    } else if (emailData.value.includes(email)) {
+    }
+    else if (emailData.value.includes(email)) {
         Swal.fire({
             title: '此信箱已訂閱，請重新輸入',
             icon: 'error',

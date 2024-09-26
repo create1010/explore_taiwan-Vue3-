@@ -6,8 +6,8 @@
                     <h1>腳步起舞：即刻啟程，精心規劃</h1>
                     <span>發現無盡的驚喜，揭開神秘的面紗</span>
                     <div class="searchBar">
-                        <input type="search" v-model="searchHistory" @keydown.enter="handleSearch" @input="handleSearch"
-                            placeholder="請輸入景點名稱">
+                        <input type="search" v-model="searchHistory" @keydown.enter.prevent="handleSearch"
+                            @input="handleSearch" placeholder="請輸入景點名稱">
                         <button @click="submitSearch">搜尋</button>
                     </div>
                     <ul v-if="searchHistory.trim() !== '' && filteredResults.length > 0">
@@ -22,7 +22,7 @@
                 <div class="history">
                     <button v-for="(item, index) in btns.slice(0, 6)" :key="index" @click="() => selectResult(item)">
                         {{ item.title }}
-                        <i class="fa-solid fa-rectangle-xmark" @click="delHistory(item)"></i>
+                        <i class="fa-solid fa-rectangle-xmark" @click.stop="delHistory(item)"></i>
                     </button>
                 </div>
             </div>
@@ -70,6 +70,14 @@ const handleSearch = () => {
     filteredResults.value = data.value.filter(item =>
         regex.test(item.title) || (Array.isArray(item.tag) && item.tag.some(tag => regex.test(tag)))
     );
+
+    if (filteredResults.value.length === 0) {
+        Swal.fire({
+            title: '查無結果，請嘗試其他關鍵字',
+            icon: 'error',
+            showConfirmButton: true
+        })
+    }
 };
 //點擊歷史紀錄button
 const submitSearch = () => {
