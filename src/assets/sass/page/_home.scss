@@ -47,6 +47,9 @@
 
 
                 .logo {
+                    width: 30%;
+                    text-align: right;
+
                     img {
                         width: 50%;
                         vertical-align: top;
@@ -54,6 +57,7 @@
                 }
 
                 h1 {
+                    width: 70%;
                     font-size: 36px;
                     font-weight: 700;
                     margin: 0;
@@ -587,7 +591,7 @@
         background-size: cover;
         background-position: bottom;
         background-repeat: no-repeat;
-        opacity: .9;
+        opacity: .7;
         position: absolute;
         top: 0;
         left: 0;

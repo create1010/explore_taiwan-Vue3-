@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css/effect-coverflow';
@@ -121,14 +121,43 @@ const AttractionsList = reactive([
         bg: '/img/home/51.jpg'
     }
 ])
+//初始化背景圖，並設置預設圖片
+const initialBackGround = (src) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+        document.querySelector('.section-detailed').style.setProperty('--bg', `url(${src})`)
+    }
+}
+
+//預先加載圖片
+const advanceBackGround = () => {
+    AttractionsList.forEach(item => {
+        const img = new Image();
+        item.src = img.bg
+    })
+}
 
 //滑動事件
 const onSlideChange = (swiper) => {
     currentIndex.value = swiper.realIndex;
     //獲取中間索引
-    const selectSwiper = swiper.realIndex;
-    const defaultBackGround = AttractionsList[selectSwiper].bg;
+    // const selectSwiper = swiper.realIndex;
+    // const defaultBackGround = AttractionsList[selectSwiper].bg;
     //動態更新背景
-    document.querySelector('.section-detailed').style.setProperty('--bg', `url(${defaultBackGround})`)
+    // document.querySelector('.section-detailed').style.setProperty('--bg', `url(${defaultBackGround})`)
 }
+//監聽背景圖載入後動態變更
+watch(currentIndex, (newIndex) => {
+    const defaultBackGround = AttractionsList[newIndex]?.bg;
+    if (defaultBackGround) {
+        initialBackGround(defaultBackGround)
+    }
+})
+//先將背景圖掛載
+onMounted(() => {
+    advanceBackGround();
+    //設置為初始背景
+    initialBackGround(AttractionsList[currentIndex.value].bg);
+})
 </script>

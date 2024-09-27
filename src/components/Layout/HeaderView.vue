@@ -6,34 +6,42 @@
                     <RouterLink to="/" class="logoIndex">
                         <img src="/logo-white.png" width="120" alt="explorem taiwan 探索台灣">
                     </RouterLink>
-                    <ul class="navbar">
-                        <li>
-                            <RouterLink to="/brand">品牌理念</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/Destination">目的地</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/Plan">啟動計畫</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/Remember">美好回憶</RouterLink>
-                        </li>
-                        <li>
-                            <RouterLink to="/Connection">聯絡我們</RouterLink>
-                        </li>
-                    </ul>
-                    <div class="userLogin" v-if="useStore.loginStatus === true">
-                        <div class="userList">
-                            <div class="user">
-                                <img :src="useStore.avatar" alt="userAvater">
-                                <span>{{ useStore.username }}</span>
+                    <!--menu-->
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars" @click="toggleMenu"></i>
+                    </div>
+                    <div class="menu-content" :class="{ 'mobile': hamburgerOpen }">
+                        <ul class="navbar">
+                            <li>
+                                <RouterLink to="/brand">品牌理念</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/Destination">目的地</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/Plan">啟動計畫</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/Remember">美好回憶</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/Connection">聯絡我們</RouterLink>
+                            </li>
+                        </ul>
+                        <div class="user-section">
+                            <div class="userLogin" v-if="useStore.loginStatus === true">
+                                <div class="userList">
+                                    <div class="user">
+                                        <img :src="useStore.avatar" alt="userAvater">
+                                        <span>{{ useStore.username }}</span>
+                                    </div>
+                                </div>
+                                <span class="loginOut" @click="singOut">登出</span>
+                            </div>
+                            <div class="loginbar" v-else>
+                                <RouterLink to="/Login">會員登入</RouterLink>
                             </div>
                         </div>
-                        <span class="loginOut" @click="singOut">登出</span>
-                    </div>
-                    <div class="loginbar" v-else>
-                        <RouterLink to="/Login">會員登入</RouterLink>
                     </div>
                 </nav>
             </div>
@@ -50,9 +58,9 @@ import { useMemberStore } from '@/stores/userLogin';
 
 const navScroll = ref(null);
 const scrollStore = useScrollStore();
-
 const useStore = useMemberStore();
 const route = useRoute();
+const hamburgerOpen = ref(false);
 const handleScroll = () => {
     // 判斷捲動位置是否超過 900px
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -66,6 +74,11 @@ const handleScroll = () => {
 };
 const singOut = () => {
     useStore.loginOut()
+}
+
+const toggleMenu = () => {
+    hamburgerOpen.value = !hamburgerOpen.value
+
 }
 
 const headerToggle = computed(() => {

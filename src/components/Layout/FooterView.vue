@@ -23,7 +23,7 @@
                     <span class="tibame">本作品為自身創作非營利所用，若有侵權相關問題請來信plae56782@gmail.com</span>
                 </div>
                 <div class="sub">
-                    <span class="subscription">立即獲得用戶限定優惠及私房景點資訊!</span>
+                    <span class="subscription">立即獲得用戶限定優惠!</span>
                     <form @submit.prevent="sendEmail">
                         <input placeholder="請輸入email" v-model="user">
                         <button class="edm">訂閱電子報</button>

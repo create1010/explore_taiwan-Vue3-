@@ -1,12 +1,14 @@
 footer {
     padding: 20px 0;
-    background-color: rgba(11,47,71,1);
+    background-color: rgba(11, 47, 71, 1);
     font-family: $font-family-base;
     color: #fff;
+
     .footerWrap {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
+
         .lastPage {
             display: flex;
             flex-direction: column;
@@ -18,13 +20,15 @@ footer {
                 font-weight: 500;
             }
 
-            .place{
-                a{
+            .place {
+                a {
                     text-decoration: none;
                     color: #fff;
-                    &:hover{
+
+                    &:hover {
                         text-decoration: underline;
                     }
+
                     li {
                         margin: 7px 0;
                         font-size: 14px;
@@ -32,7 +36,8 @@ footer {
                 }
 
             }
-            .webName{
+
+            .webName {
                 font-weight: 500;
             }
         }
@@ -47,16 +52,19 @@ footer {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                h3{
+
+                h3 {
                     font-weight: 500;
                 }
+
                 span {
-                        display: block;
-                        font-size: 14px;
-                        margin-top: 20px;
+                    display: block;
+                    font-size: 14px;
+                    margin-top: 20px;
                 }
             }
-            .tibame{
+
+            .tibame {
                 opacity: .5;
                 font-size: 14px;
             }
@@ -66,22 +74,28 @@ footer {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            form{
+
+            form {
                 display: flex;
-                input{
+
+                input {
                     background-color: transparent;
                     border-radius: 10px;
                     border: 2px solid #fff;
                     padding: 10px;
-                    &::placeholder{
+
+                    &::placeholder {
                         color: #fff;
                         font-family: $font-family-base;
                     }
-                    &:focus{
+
+                    &:focus {
                         color: #fff;
+                        outline: none;
                     }
                 }
-                .edm{
+
+                .edm {
                     margin-left: 10px;
                     background-color: #00BCD6;
                     border: none;
@@ -89,7 +103,8 @@ footer {
                     color: #fff;
                     font-family: $font-family-base;
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         background-color: #fff;
                         color: #00BCD6;
                         transition: .3s ease;
@@ -97,9 +112,11 @@ footer {
                 }
 
             }
-            .icon{
+
+            .icon {
                 display: flex;
-                a{
+
+                a {
                     text-decoration: none;
                     display: inline-block;
                     font-size: 20px;
@@ -107,15 +124,132 @@ footer {
                     color: #fff;
                     padding: 10px;
                     opacity: .5;
-                    &:hover{
+
+                    &:hover {
                         opacity: 1;
                         transition: .3s ease;
                     }
                 }
             }
-            .copy{
+
+            .copy {
                 font-size: 14px;
                 font-family: sans-serif;
+            }
+        }
+    }
+}
+
+/*rwd*/
+@media screen and (max-width:992px) {
+    footer {
+        .footerWrap {
+            display: block;
+
+            .lastPage {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .material {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 20px;
+
+                .on,
+                .under {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        margin: 0;
+                    }
+                }
+
+                .tibame {
+                    display: none;
+                }
+            }
+
+            .sub {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+
+                span {
+                    width: calc(50% - 20px);
+                    text-align: center;
+                    margin: auto;
+                }
+
+                form {
+                    width: calc(50% - 20px);
+                    justify-content: center;
+                }
+
+                .icon {
+                    width: calc(50% - 20px);
+                    justify-content: center;
+                }
+
+                .copy {
+                    width: calc(50% - 20px);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    footer {
+        .footerWrap {
+            .lastPage {
+                .webName {
+                    display: none;
+                }
+            }
+
+            .material {
+                flex-direction: column;
+
+                .on,
+                .under {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+            }
+
+            .sub {
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    font-size: 12px;
+                }
+
+                form {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+
+                    .edm {
+                        margin: 0;
+                        width: 50%;
+                        padding: 10px;
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }

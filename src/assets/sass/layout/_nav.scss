@@ -17,106 +17,127 @@ header {
             vertical-align: top;
         }
 
-        .navbar {
-            width: 70%;
-            display: flex;
-            justify-content: space-evenly;
+        .hamburger {
+            display: none;
 
-            li {
-                &:hover {
-                    animation: scale .3s 2 linear;
-                }
-
-                a {
-                    color: #fff;
-                    text-decoration: none;
-                }
+            i {
+                width: 100%;
+                font-size: 36px;
+                color: #fff;
             }
         }
 
-        .userLogin {
-
+        .menu-content {
+            width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
 
-            .userList {
-                position: relative;
-                width: 50%;
-
-                .user {
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    padding: 5px 0;
-                    cursor: pointer;
-
-                    &:hover::before {
-                        content: '';
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        border: 3px solid transparent;
-                        border-image: linear-gradient(0deg, #399953, #fbb300, #d53e33, #377af5);
-                        border-image-slice: 1;
-                        animation: borderanimation 4s linear infinite;
-                    }
-
-                    img {
-                        width: 15%;
-                        vertical-align: top;
-                    }
-
-                    span {
-                        width: 50%;
-                        margin-left: 10px;
-                        color: #fff;
-                    }
-                }
-            }
-
-            .loginOut {
-                width: 30%;
+            .navbar {
+                width: 70%;
                 display: flex;
-                align-items: center;
-                color: #fff;
-                cursor: pointer;
-                position: relative;
+                justify-content: space-evenly;
 
-                &:hover::before {
-                    content: '';
-                    display: block;
-                    padding: 13px 30px;
-                    width: 30%;
-                    height: 100%;
-                    position: absolute;
-                    left: -30px;
-                    top: -13px;
-                    border: 3px solid transparent;
-                    border-image: linear-gradient(0deg, #399953, #fbb300, #d53e33, #377af5);
-                    border-image-slice: 1;
-                    animation: borderanimation 4s linear infinite;
+                li {
+                    &:hover {
+                        animation: scale .3s 2 linear;
+                    }
+
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .user-section {
+                .userLogin {
+
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .userList {
+                        position: relative;
+                        width: 50%;
+
+                        .user {
+                            display: flex;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            padding: 5px 0;
+                            cursor: pointer;
+
+                            &:hover::before {
+                                content: '';
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                border: 3px solid transparent;
+                                border-image: linear-gradient(0deg, #399953, #fbb300, #d53e33, #377af5);
+                                border-image-slice: 1;
+                                animation: borderanimation 4s linear infinite;
+                            }
+
+                            img {
+                                width: 15%;
+                                vertical-align: top;
+                            }
+
+                            span {
+                                width: 50%;
+                                margin-left: 10px;
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    .loginOut {
+                        width: 30%;
+                        display: flex;
+                        align-items: center;
+                        color: #fff;
+                        cursor: pointer;
+                        position: relative;
+
+                        &:hover::before {
+                            content: '';
+                            display: block;
+                            padding: 13px 30px;
+                            width: 30%;
+                            height: 100%;
+                            position: absolute;
+                            left: -30px;
+                            top: -13px;
+                            border: 3px solid transparent;
+                            border-image: linear-gradient(0deg, #399953, #fbb300, #d53e33, #377af5);
+                            border-image-slice: 1;
+                            animation: borderanimation 4s linear infinite;
+                        }
+                    }
+                }
+
+                .loginbar {
+                    // width: 10%;
+                    // display: flex;
+                    // justify-content: center;
+
+                    a {
+                        display: inline-block;
+                        color: #fff;
+                        text-decoration: none;
+
+                        &:hover {
+                            animation: scale .3s 2 linear;
+                        }
+                    }
                 }
             }
         }
 
-        .loginbar {
-            width: 10%;
-            display: flex;
-            justify-content: center;
 
-            a {
-                color: #fff;
-                text-decoration: none;
-
-                &:hover {
-                    animation: scale .3s 2 linear;
-                }
-            }
-        }
     }
 }
 
@@ -159,5 +180,70 @@ header {
 
     100% {
         border-image-source: linear-gradient(0deg, #399953, #fbb300, #d53e33, #377af5);
+    }
+}
+
+/*rwd*/
+@media screen and (max-width:992px) {
+    header {
+        .navigation {
+            display: block;
+            position: relative;
+
+            a {
+                display: block;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+
+                i {
+                    cursor: pointer;
+                }
+            }
+
+            .menu-content {
+                display: block;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+
+                &.mobile {
+                    max-height: 500px;
+                }
+
+                .navbar {
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+
+                    li {
+                        cursor: pointer;
+                        padding: 10px 0;
+                    }
+                }
+
+                .user-section {
+                    .userLogin {}
+
+                    .loginbar {
+                        width: 100%;
+                        text-align: center;
+                        padding: 10px 0;
+
+                        a {
+                            display: block;
+                            width: 100%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
