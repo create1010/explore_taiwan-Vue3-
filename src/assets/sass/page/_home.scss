@@ -1007,3 +1007,214 @@
         transform: rotateY(1turn);
     }
 }
+
+/*rwd*/
+@media screen and (max-width:992px) {
+    .section-reason {
+        .reasonWrap {
+            display: block;
+
+            .leftContent {
+                &:after {
+                    display: none;
+                }
+
+                .contentList {
+                    align-items: center;
+                    width: 100%;
+                    margin-bottom: 20px;
+
+                    .paragraph1,
+                    .paragraph2,
+                    .paragraph3 {
+                        width: 50%;
+                        transform: translate(0);
+                        text-align: center;
+                    }
+                }
+            }
+
+            .centerPicture {
+                flex-direction: row;
+                justify-content: center;
+                gap: 50px;
+                margin-bottom: 20px;
+
+                img {
+                    &:first-child {
+                        transform: rotate(0);
+                    }
+
+                    &:last-child {
+                        transform: rotate(0);
+                        transform: translateX(0);
+                    }
+                }
+            }
+
+            .rightContent {
+                &::after {
+                    display: none;
+                }
+
+                .why {
+
+                    h3,
+                    span {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                p {
+                    width: 50%;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    .section-explore {
+        .exploreList {
+            display: block;
+
+            .leftBar {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .rightBar {
+                .locationList {
+                    .plaeName {
+                        .text {
+                            bottom: 0px;
+
+                            h3 {
+                                margin-bottom: 20px;
+
+                            }
+
+                            p {
+                                width: 100%;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .section-explore {
+        .exploreList {
+            .rightBar {
+                display: block;
+
+                .locationList {
+                    margin-bottom: 20px;
+
+                    .plaeName {
+                        width: 100%;
+                        margin: auto;
+
+                        .text {
+                            width: 50%;
+                            height: 50%;
+                            left: 25%;
+                            font-size: 24px;
+
+                            p {
+                                line-height: 1.5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section-share {
+        .shareList {
+            flex-direction: column;
+            gap: 20px;
+
+            .leftImg,
+            .rightImg {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-evenly;
+
+                .on,
+                .under {
+                    .pic {
+                        width: 200px;
+                        height: 200px;
+
+                        img {}
+                    }
+                }
+            }
+
+            .leftImg {
+                order: 1;
+            }
+
+            .shareContent {
+                width: 75%;
+                order: 3;
+            }
+
+            .rightImg {
+                order: 2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:576px) {
+    .section-reason {
+        .reasonWrap {
+            .centerPicture {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+
+    .section-explore {
+        .exploreList {
+            .rightBar {
+                .locationList {
+                    .plaeName {
+                        .text {
+                            width: 70%;
+                            left: 15%;
+
+                            h3 {
+                                font-size: 18px;
+                                line-height: 1.5;
+                            }
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section-share {
+        .shareList {
+            .leftImg {
+                display: block;
+            }
+
+            .rightImg {
+                display: none;
+            }
+        }
+    }
+}
