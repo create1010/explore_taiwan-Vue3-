@@ -1103,6 +1103,53 @@
             }
         }
     }
+
+    .section-compass {
+        .on {
+            .title {
+                h3 {
+                    font-size: 20px;
+                }
+
+                span {
+                    font-size: 16px;
+                }
+            }
+
+            .cardList {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 50px;
+
+                .card {
+                    margin: 0;
+
+                    &:nth-child(1) {
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        margin-top: 0;
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    .more {
+                        transform: translateY(-90px);
+                    }
+                }
+            }
+        }
+
+        .topButton {
+            margin-top: 20px;
+            justify-content: center;
+        }
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -1150,8 +1197,6 @@
                     .pic {
                         width: 200px;
                         height: 200px;
-
-                        img {}
                     }
                 }
             }
@@ -1167,6 +1212,55 @@
 
             .rightImg {
                 order: 2;
+            }
+        }
+    }
+
+    .section-detailed {
+        .detailedWrap {
+            flex-direction: column-reverse;
+            gap: 20px;
+            align-items: center;
+
+            .rightbar {
+                width: 80%;
+            }
+        }
+    }
+
+    .section-compass {
+        .under {
+            .title {
+                h3 {
+                    font-size: 20px;
+                }
+
+                span {
+                    font-size: 16px;
+                }
+            }
+
+            .content {
+                .contentList {
+                    flex-direction: column;
+                    gap: 20px;
+
+                    .card {
+                        &:first-child img {
+                            transform: rotate(-5deg);
+                        }
+
+                        &:last-child img {
+                            transform: rotate(5deg);
+                        }
+
+                        .story {
+                            span {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -1214,6 +1308,18 @@
 
             .rightImg {
                 display: none;
+            }
+        }
+    }
+
+    .section-detailed {
+        .detailedWrap {
+            .leftBar {
+                width: 100%;
+            }
+
+            .rightbar {
+                width: 50%;
             }
         }
     }

@@ -7,11 +7,11 @@
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div class="location">
-                        台灣,{{ AttractionsList[currentIndex].name }}<br>
-                        Taiwan,{{ AttractionsList[currentIndex].englishName }}
+                        台灣,{{ AttractionsList[currentIndex].name }}Taiwan,{{ AttractionsList[currentIndex].englishName
+                        }}
                     </div>
                 </div>
-                <swiper :modules="[Autoplay, EffectCoverflow]" :slides-per-view="4" space-between="20"
+                <swiper :modules="[Autoplay, EffectCoverflow]" :slides-per-view="1" space-between="10"
                     :autoplay="{ delay: 3000, disableOnInteraction: false }" loop :grabCursor="true"
                     :effect="'coverflow'" :centeredSlides="true" :coverflowEffect="{
                         rotate: 50,
@@ -19,7 +19,20 @@
                         depth: 100,
                         modifier: 1,
                         slideShadows: true
-                    }" :pagination="true" class="rightbar" @slideChange="onSlideChange">
+                    }" :pagination="true" class="rightbar" @slideChange="onSlideChange" :breakpoints="{
+                        576: {
+                            slidesPerView: 2,
+                            spaceBetween: 15
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 15
+                        },
+                        992: {
+                            slidesPerView: 4,
+                            spaceBetween: 20
+                        }
+                    }">
                     <SwiperSlide class="detailLocation" v-for="item in AttractionsList" :key="item.id">
                         <div class="pic">
                             <img :src="item.image" :alt="item.alt">
@@ -44,7 +57,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import 'swiper/css/bundle';
+import 'swiper/css';
 
 const currentIndex = ref(0);
 const AttractionsList = reactive([
